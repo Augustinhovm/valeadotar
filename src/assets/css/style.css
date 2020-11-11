@@ -1,0 +1,16 @@
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+@media only screen and (max-width: 620px) {
+    #carousel{
+        display: none;
+    }
+
+    #formprincipal{
+        margin-top: 70px !important;
+    }
+
+}
