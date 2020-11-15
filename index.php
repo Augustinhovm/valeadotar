@@ -1,6 +1,19 @@
 <?php
 session_start();
-include_once('conexao.php');
+include_once('conexao2.php');
+
+$pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
+$result_animais = "SELECT * FROM animais";
+$resultado_animais = mysqli_query($conn, $result_animais);
+$total_animais = mysqli_num_rows($resultado_animais);
+$quantidade_pagina = 8;
+$num_pagina = ceil($total_animais/$quantidade_pagina);
+$inicio = ($quantidade_pagina*$pagina)-$quantidade_pagina;
+
+$result_animais2 = "SELECT * FROM animais limit $inicio, $quantidade_pagina";
+$resultado_animais = mysqli_query($conn, $result_animais2);
+$total_animais = mysqli_num_rows($resultado_animais);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,6 +27,7 @@ include_once('conexao.php');
 </head>
 
 <body>
+
     <div class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 1px solid #613488;">
             <a class="navbar-brand" href="#">
@@ -136,75 +150,75 @@ include_once('conexao.php');
                     <div class="col-md-12 text-center">
                         <p class="my-4" style="font-size: 40px; font-family: cursive; text-align: center; margin-top: -20px; color: #f4aa24;">
                             Novos no Site</p>
-                        <span>Nosso site está cheio de peludos ansiosos pra ter uma família. Tente diferentes buscas até
-                            encontrar um peludo pra chamar de seu. :) </span>
+                       <h4><span>Nosso site está cheio de peludos ansiosos pra ter uma família. Tente diferentes buscas até
+                            encontrar um peludo pra chamar de seu. :) </span></h4>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="section">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-3 col-md-6 col-12">
-                        
-                        <div class="col-lg-3 col-md-6">
-                            <div class="card my-5 mx-auto" style="width: 16rem; border: none;">
-                                <img src="src/assets/img/5.png" class="card-img-top" style="border-radius: 1%" alt="...">
-                                <div class="card-body" style="color: #684686; ">
-                                    <h5 class="card-title">Connor</h5>
-                                    <p class="card-text">São Paulo</p>
-                                    <a href="#" class="btn btn-light" style="border: 1px solid #684686; ">P</a>
-                                    <a href="#" class="btn btn-light" style="border: 1px solid #684686; ">M</a>
-                                    <a href="#" class="btn btn-light" style="border: 1px solid #684686; ">G</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="card my-5 mx-auto" style="width: 16rem; border: none;">
-                                <img src="src/assets/img/6.png" class="card-img-top" style="border-radius: 1%" alt="...">
-                                <div class="card-body" style="color: #684686; ">
-                                    <h5 class="card-title">Connor</h5>
-                                    <p class="card-text">São Paulo</p>
-                                    <a href="#" class="btn btn-light" style="border: 1px solid #684686; ">P</a>
-                                    <a href="#" class="btn btn-light" style="border: 1px solid #684686; ">M</a>
-                                    <a href="#" class="btn btn-light" style="border: 1px solid #684686; ">G</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="card my-5 mx-auto" style="width: 16rem; border: none;">
-                                <img src="src/assets/img/7.png" class="card-img-top" style="border-radius: 1%" alt="...">
-                                <div class="card-body" style="color: #684686; ">
-                                    <h5 class="card-title">Connor</h5>
-                                    <p class="card-text">São Paulo</p>
-                                    <a href="#" class="btn btn-light" style="border: 1px solid #684686; ">P</a>
-                                    <a href="#" class="btn btn-light" style="border: 1px solid #684686; ">M</a>
-                                    <a href="#" class="btn btn-light" style="border: 1px solid #684686; ">G</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        	
+        	<div class="row">
+
+        	<?php while ($rows_animais = mysqli_fetch_assoc($resultado_animais)) { ?>
+
+	       <div class="col-lg-3 col-md-6 col-12">
+	       		<div class="card" style="width: 18rem;">
+
+	  		 	 <img src="inserir_animais/upload/<?php echo $rows_animais['ani_id']; ?>" width="200" height="300" class="card-img-top" alt="Image not found">
+	  				<div class="card-body text-center" >
+	  					
+	    				<h2>Nome: <?php echo $rows_animais['ani_nome']; ?></h2>
+	    				<h5>Gênero: <?php echo $rows_animais['ani_genero']; ?></h5>
+	    				<h5>Tamanho: <?php echo $rows_animais['ani_porte']; ?></h5>
+	    				<h5>Cidade: <?php echo $rows_animais['ani_cidade']; ?></h5>
+	    				<h5>Telefone:  <?php echo $rows_animais['ani_telefone']; ?></h5>
+	   		 			<a href="#" class="btn btn-primary">Adotar</a>
+	  				</div>
+				</div>
+			</div>
+			<?php } ?>
+		</div>
+
+				<?php
+					$pagina_anterior = $pagina - 1;
+					$pagina_posterior = $pagina +1;
+				?>
+
+				<div>
+
+					
+				<nav aria-label="Page navigation example" >
+ 					 <ul class="pagination" >
+   						 <li class="page-item">
+   						 	<?php 
+   						 		if($pagina_anterior !=0){ ?>
+   						 			 <a class="page-link" href="index.php?pagina=<?php echo $pagina_anterior; ?>" aria-label="Previous">
+        							<span aria-hidden="true">&laquo;</span>
+     						 </a>
+     						  <?php } else{ ?>
+   						 		<?php } ?>
+   						 </li>
+   						 <?php 
+   						 	for ($i=1; $i < $num_pagina + 1; $i++) { ?>
+   						 		<li class="page-item"><a class="page-link" href="index.php?pagina=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+
+   						<?php } ?>
+    						
+    					 <li class="page-item">
+      						 <li class="page-item">
+      						<?php 
+   						 		if($pagina_posterior <= $num_pagina){ ?>
+   						 			 <a class="page-link" href="index.php?pagina=<?php echo $pagina_posterior; ?>" aria-label="Next">
+        							<span aria-hidden="true">&raquo;</span>
+     						 </a>
+     						  <?php } else{ ?>
+   						 		<?php } ?>
+    					</li>
+  					</ul>
+				</nav>
 
 
-            <div class="section">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination" style="border: 1px solid #684686; ">
-                                <li class="page-item"><a class="page-link" style="color: #684686; " href="#">Voltar</a></li>
-                                <li class="page-item"><a class="page-link" style="color: #684686; " href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" style="color: #684686; " href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" style="color: #684686; " href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" style="color: #684686; " href="#">Próximo</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
 
             <div class="section">
                 <div class="container w-100">
@@ -286,6 +300,8 @@ include_once('conexao.php');
             </div>
         </div>
     </div>
+
+
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

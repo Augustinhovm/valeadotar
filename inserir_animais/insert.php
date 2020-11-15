@@ -25,6 +25,9 @@ if(!$especie){ $erros++;  $msg.="Espécie Inválido!<br>"; }
 
 $descricao = filter_input(INPUT_POST, 'ani_descricao', FILTER_SANITIZE_STRING);
 if(!$descricao){ $erros++;  $msg.="Descrição Inválido!<br>"; }
+
+$telefone = filter_input(INPUT_POST, 'ani_telefone', FILTER_SANITIZE_STRING);
+if(!$descricao){ $erros++;  $msg.="Telefone Inválido!<br>"; }
 //---
  
 //---| VALIDA SE HÁ ERROS DE PREENCHIMENTO |---
@@ -38,9 +41,9 @@ $msg = 'Pet NÃO FOI cadastrado com sucesso';
 
 //---| INSERE O NOVO PET NO BD (PERSISTE O NOVO REGISTRO) |---
 $query = "INSERT INTO 
-			animais (ani_nome, ani_porte, ani_genero, ani_cidade, ani_especie, ani_descricao) 
+			animais (ani_nome, ani_porte, ani_genero, ani_cidade, ani_especie, ani_descricao, ani_telefone) 
 		  VALUES 
-			('$nome', '$porte', '$genero', '$cidade', '$especie', '$descricao')";
+			('$nome', '$porte', '$genero', '$cidade', '$especie', '$descricao' '$telefone')";
 $resultado_usuarios = mysqli_query($mysqli, $query);
 if($idDoUltimoAnimalInserido = mysqli_insert_id($mysqli))
 {
