@@ -135,6 +135,13 @@
                             <input type="text" name="ani_descricao" class="form-control" placeholder="Descrição do animal"  <?=$required?> >
                             <div class="invalid-feedback">Campo obrigatório!</div>
                         </div>
+
+                         <div class="form-group col-md-6">
+                            <label for="inputName4">Digite seu Telefone para contato:</label>
+                            <input type="text" name="ani_descricao" class="form-control" placeholder="Telefone"  <?=$required?> >
+                            <div class="invalid-feedback">Campo obrigatório!</div>
+                        </div>
+
                         <div class="form-group col-md-6">
                             
                             <input type="file"  <?=$required?>  name="arquivo">
