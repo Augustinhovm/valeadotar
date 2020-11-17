@@ -66,14 +66,14 @@ session_start();
             </div>
             <div class="form-group col-md-6">
             <label  for="inputName4">Telefone:</label>
-            <input type="text" name="telefone" class="form-control" placeholder="Digite seu telefone: " required><br><br>
+            <input type="number" name="telefone" class="form-control" placeholder="Digite seu telefone: " required><br><br>
             </div>
             <div class="form-group col-md-6">
             <label  for="inputName4">Endereço:</label>
             <input type="text" name="endereco" class="form-control" placeholder="Digite seu endereço: " required><br><br>
             </div>
 
-            <div class="ml-5 mt-3 col-sm-5 text-center">
+            <div class="form-group col-12 text-center">
             <input type="submit" class="btn btn-primary ml-5 mt-3 col-sm-5" style="background-color:#613488; color:white; border: 1px solid #684686;" value="Cadastrar"></input>
             </div> 
             </div>
