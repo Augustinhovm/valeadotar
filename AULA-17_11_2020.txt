@@ -1,0 +1,19 @@
+- SESSÃO:  variável simples, ou um vetor (array) 
+           uma forma armazenar dados em arquivos, memória, bd, etc.
+           - é um cookie que vai para o cliente (chrome, Internet Explore, firefox)
+
+           $_SESSION : variável global para utilizar a sessão (gravar, regastar, etc)
+           PHPSESSID - pode ocorrer ataque de CRSF. #MITIGARISSO
+
+- AUTENTICAÇÃO:
+    a certeza de que aquilo é o que diz ser. É alguém registrado (bd).
+    Login. Logout.
+
+- AUTORIZAÇÃO:
+    Permitir o acesso a quem é devido. 
+    Sistema de Escola: Papéis / ROLES - aluno, professor, coordenador, diretor, secretaria, etc...
+    direto -> coordenador -> secretaria -> professor -> aluno
+    OBSERVAÇÃO: SE ALGUÉM, QUE NÃO DEVERIA, TEM ACESSO, OCORRE UM INCIDENTE DE SEGURANÇA.
+    #LGPD - Lei Geral de Proteção de Dados.
+
+    
