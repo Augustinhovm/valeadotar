@@ -1,6 +1,11 @@
+<?php
+
+    session_start();
+
+?>
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="pt-br">
 
 <head>
 
@@ -18,39 +23,7 @@
 
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 1px solid #613488;">
-        <a class="navbar-brand" href="#">
-            <img src="src/assets/img/log.png" width="30" height="30" class="d-inline-block align-top" alt=""
-                loading="lazy">
-
-        </a>
-
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Início </a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Quero Adotar</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="inserir_animais/index.php">Quero Doar</a>
-                </li>
-                
-            </ul>
-            
-        </div>
-        
-        <form class="form-inline">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <button type="button" class="btn btn-danger mx-3"
-                style="background-color:#613488; color:white; border: 1px solid #684686;">Cadastro</button>
-            <button type="button" class="btn btn-warning" style="color:white; border: 1px solid #ffffff; background-color: #f4aa24">Login</button>
-        </form>
-    </nav>
+    <?php require_once("menus_topo.php"); ?>
 
     <div class="section">
         <div id="carousel" class="carousel slide" data-ride="carousel">
@@ -241,6 +214,7 @@
         </div>
     </div>
     </div>
+    <?php require_once("modal_login.php"); ?>
 
     <script src="src/node_modules/bootstrap/dist/js/jquery-3.5.1.min.js"></script>
     <script src="src/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

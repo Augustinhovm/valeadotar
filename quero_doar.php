@@ -1,20 +1,9 @@
 <?php
-session_start();
-include_once('conexao2.php');
 
-$pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
-$result_animais = "SELECT * FROM animais";
-$resultado_animais = mysqli_query($conn, $result_animais);
-$total_animais = mysqli_num_rows($resultado_animais);
-$quantidade_pagina = 8;
-$num_pagina = ceil($total_animais/$quantidade_pagina);
-$inicio = ($quantidade_pagina*$pagina)-$quantidade_pagina;
-
-$result_animais2 = "SELECT * FROM animais limit $inicio, $quantidade_pagina";
-$resultado_animais = mysqli_query($conn, $result_animais2);
-$total_animais = mysqli_num_rows($resultado_animais);
+    session_start();
 
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -23,39 +12,17 @@ $total_animais = mysqli_num_rows($resultado_animais);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="src/assets/css/style.css">
-    <title>Title</title>
+    <title>Cadastrar Animais</title>
 </head>
 
 <body>
-
     <div class="header">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 1px solid #613488;">
-            <a class="navbar-brand" href="#">
-                <img src="src/assets/img/log.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-            </a>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Início </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Quero Adotar</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="inserir_animais/index.php">Quero Doar</a>
-                    </li>
-                    
-                </ul>
-            </div>
-            <form class="form-inline">
-                <button class="navbar-toggler" type="button" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a href="login-cadastro/index.php"><input type="button" class="btn btn-danger mx-3" style="background-color:#613488; color:white; border: 1px solid #3a1e53;" value="Cadastro"></a></input>
-                <input type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" style="color:white; border: 1px solid #ffffff; background-color: #f4aa24" value="Login"></input>
-            </form>
-        </nav>
 
+        <!--| MENU TOPO |--->
+        <?php require_once("menus_topo.php"); ?>
+        <!--| /MENU TOPO |--->
+
+        <!--| CARROSSEL |--->
         <div class="section">
             <div id="carousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
@@ -79,198 +46,132 @@ $total_animais = mysqli_num_rows($resultado_animais);
                 </a>
             </div>
         </div>
-
-        <div class="container w-100">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="jumbotron" id="formprincipal" style="margin-top: -70px; background-color: #f4aa24;">
-                        <form class="text-center" style="color: white">
-                            <p style="font-size: 40px; font-family: cursive; text-align: center; margin-top: -20px;">
-                                Encontre seu novo amigo</p>
-                            <div class="form-row ">
-                                <div class="form-group col-md-6">
-                                    <label for="inputtext1">Espécie</label>
-                                <select class="form-control" name="ani_especie" id="sel1" placeholder="Espécie" required>
-                                    <option selected></option>
-                                    <option>Gato</option>
-                                    <option>Cachorro</option>
-                                </select>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputtext2">Porte</label>
-                                <select class="form-control" name="ani_porte" id="sel1" placeholder="Porte" required>
-                                    <option selected></option>
-                                    <option>Pequeno</option>
-                                    <option>Medio</option>
-                                    <option>Grande</option>
-                                </select>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputtext3">Gênero</label>
-                                <select class="form-control" name="ani_genero" id="sel1" placeholder="Gênero" required>
-                                    <option selected></option>
-                                    <option>Femea</option>
-                                    <option>Macho</option>
-                                </select>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputtext4">Cidade</label>
-                                <select class="form-control" name="ani_cidade" id="sel1" placeholder="Cidade" required>
-                                    <option selected></option>
-                                    <option>Aparecida</option>
-                                    <option>Cachoeira Paulista</option>
-                                    <option>Guaratinguetá</option>
-                                    <option>Lorena</option>
-                                    <option>Pindamonhangaba</option>
-                                    <option>Potim</option>
-                                    <option>Roseira</option>
-                                </select>
-                                </div>
-                            </div>
-
-                            
-                            <div class="row justify-content-center">
-                                <button type="button" class="btn btn-danger mt-5" style="background-color:#613488; color:white; border: 1px solid #684686;">Procurar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        <!--| /CARROSSEL |--->
 
 
+        <div class="container jumbotron mt-5 " style="background-color: #f4aa24;">
+            <div class="row "> 
 
-    <div class="main">
-        <div class="section">
-            <div class="container w-100 ">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <p class="my-4" style="font-size: 40px; font-family: cursive; text-align: center; margin-top: -20px; color: #f4aa24;">
-                            Novos no Site</p>
-                       <h4><span>Nosso site está cheio de peludos ansiosos pra ter uma família. Tente diferentes buscas até
-                            encontrar um peludo pra chamar de seu. :) </span></h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-            
-
-                     
-                             
-        <div class="container">	       
-           <div class="row justify-content-center mt-5">            
-
-              <?php while ($rows_animais = mysqli_fetch_assoc($resultado_animais)) { 
-                   echo '<div class="col-lg-3 col-md-6 col-12 mb-4">
-	       		            <div class="card" style="width: 16rem;" >
-	  		 	                 <img src="inserir_animais/upload/'.$rows_animais['ani_id'].'" width="200" height="200" class="card-img-top " style="border-radius: 1%" alt="...">
-  			                        <div class="card-body text-left"   style="color: #684686; ">	  					
-                                        <p>Nome:'. $rows_animais['ani_nome']. '</p>
-	    				                <p>Porte: '. $rows_animais['ani_porte'] .'</p>
-	    				                <p>Cidade: '. $rows_animais['ani_cidade'] .'</p>	    				
-                                        <div class="form-group col-12 text-center"> 
-	   		 			                    <a href="" class="btn btn-light" style="border: 1px solid #684686;">Adotar</a>
-                                        </div>
-	  				                </div>
-				            </div>
-                        </div>';
-                   } 
+                <?php
+                    //required = null;
+                    $required = ' required';
                 ?>
-		    </div>
+
+                <form class="needs-validation" novalidate  method="POST" action="insert.php"  enctype="multipart/form-data">
+                    <div id="mensagem"></div>
+                    <?php
+
+                    if (!array_key_exists('Login',$_SESSION))
+                    {
+
+                        echo '<div class="alert alert-danger">PARA DOAR, REALIZE LOGIN!</div>';
+
+                    } 
+                    else
+                    {
+
+                    ?>
+                    
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputName4" class="">Digite o nome do animal</label>
+                            <input type="text" name="ani_nome" class="form-control" placeholder="Nome do animal"  <?=$required?> >
+                            <div class="invalid-feedback">Campo obrigatório!</div>
+                        </div>
+                        <div class="form-group col-md-6 ">
+                            <label for="inputName4">Escolha porte do animal</label>
+                            <select class="form-control" name="ani_porte" id="sel1" placeholder="Porte"  <?=$required?> >
+                            <option selected></option>
+                            <option>Pequeno</option>
+                            <option>Medio</option>
+                            <option>Grande</option>
+                            </select>
+                            <div class="invalid-feedback">Campo obrigatório!</div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputName4">Escolha o gênero do animal</label>
+                            <select class="form-control" name="ani_genero" id="sel1" placeholder="Gênero"  <?=$required?> >
+                            <option selected></option>
+                            <option>Femea</option>
+                            <option>Macho</option>
+                            
+                            </select>
+                            <div class="invalid-feedback">Campo obrigatório!</div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputName4">Escolha a cidade do animal</label>
+                            <select class="form-control" name="ani_cidade" id="sel1" placeholder="Cidade"  <?=$required?> >
+                            <option selected></option>
+                            <option>Aparecida</option>
+                            <option>Cachoeira Paulista</option>
+                            <option>Guaratinguetá</option>
+                            <option>Lorena</option>
+                            <option>Pindamonhangaba</option>
+                            <option>Potim</option>
+                            <option>Roseira</option>
+                            
+                            </select>
+                            <div class="invalid-feedback">Campo obrigatório!</div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputName4">Escolha a espécie do animal</label>
+                            <select class="form-control" name="ani_especie" id="sel1" placeholder="Espécie"  <?=$required?> >
+                            <option selected></option>
+                            <option>Gato</option>
+                            <option>Cachorro</option>
+                            
+                            </select>
+                            <div class="invalid-feedback">Campo obrigatório!</div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputName4">Digite a descrição do animal</label>
+                            <input type="text" name="ani_descricao" class="form-control" placeholder="Descrição do animal"  <?=$required?> >
+                            <div class="invalid-feedback">Campo obrigatório!</div>
+                        </div>
+
+                         <div class="form-group col-md-6">
+                            <label for="inputName4">Digite seu Telefone para contato:</label>
+                            <input type="number" name="ani_telefone" class="form-control" placeholder="Telefone"  <?=$required?> >
+                            <div class="invalid-feedback">Campo obrigatório!</div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            
+                            <input type="file"  <?=$required?>  name="arquivo">
+                            <div class="invalid-feedback">Campo obrigatório!</div>
+                        
+                        </div>
+                        <div class="form-group col-12 text-center">
+                         <?php
+
+                            if(array_key_exists("msg_erro", $_GET)) {
+
+                                echo '<div class="alert alert-danger">'.$_GET['msg_erro'].'</div>';
+
+                            }
+
+                            if(array_key_exists("msg_success", $_GET)) {
+
+                                echo '<div class="alert alert-success">'.$_GET['msg_success'].'</div>';
+
+                            }
+
+                        ?>
+                        </div>
+                        
+                        <div class="form-group col-12 text-center">
+                            <button type="submit" class="btn btn-lg btn-primary mt-3" style="background-color:#613488; color:white; border: 1px solid #684686;">Cadastrar Formulário</button>
+                        </div>
+                        
+                    </div>  
+                </form>     
+                
+                <?php
+                    } //---| fecha o IF
+                ?>
+            
         </div>
-
-			<?php
-				$pagina_anterior = $pagina - 1;
-				$pagina_posterior = $pagina +1;
-			?>
-
-				
-
-					
-				<nav aria-label="Page navigation example" >
- 					 <ul class="pagination justify-content-center" >
-   						 <li class="page-item">
-   						 	<?php 
-   						 		if($pagina_anterior !=0){ ?>
-   						 			 <a class="page-link" href="index.php?pagina=<?php echo $pagina_anterior; ?>" aria-label="Previous">
-        							<span aria-hidden="true">&laquo;</span>
-     						 </a>
-     						  <?php } else{ ?>
-   						 		<?php } ?>
-   						 </li>
-   						 <?php 
-   						 	for ($i=1; $i < $num_pagina + 1; $i++) { ?>
-   						 		<li class="page-item"><a class="page-link" href="index.php?pagina=<?php echo $i; ?>"><?php echo $i; ?></a></li>
-
-   						<?php } ?>
-    						
-    					 <li class="page-item">
-      						 <li class="page-item">
-      						<?php 
-   						 		if($pagina_posterior <= $num_pagina){ ?>
-   						 			 <a class="page-link" href="index.php?pagina=<?php echo $pagina_posterior; ?>" aria-label="Next">
-        							<span aria-hidden="true">&raquo;</span>
-     						 </a>
-     						  <?php } else{ ?>
-   						 		<?php } ?>
-    					</li>
-  					</ul>
-				</nav>
-                </div>
-
-                 
-               
-
-            <div class="section">
-                <div class="container w-100">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <p class="my-4" style="font-size: 40px; font-family: cursive; text-align: center; margin-top: -20px; color: #f4aa24;">
-                                Por que adotar?</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <img src="src/assets/img/log.png" class="img-fluid" style="border-radius: 1%" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut iure maxime fugiat non
-                                        ullam tempore, ipsum, consequuntur </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <img src="src/assets/img/log.png" class="img-fluid" style="border-radius: 1%" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut iure maxime fugiat non
-                                        ullam tempore, ipsum, consequuntur </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <img src="src/assets/img/log.png" class="img-fluid" style="border-radius: 1%" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut iure maxime fugiat non
-                                        ullam tempore, ipsum, consequuntur </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-
         <div class="footer">
             <div class="jumbotron mt-5 mb-0" style="background-color: #684686; border-radius: 0;">
                 <div class="row">
@@ -303,21 +204,34 @@ $total_animais = mysqli_num_rows($resultado_animais);
                 </div>
             </div>
         </div>
-    </div>
+
+        <?php require_once("modal_login.php"); ?>
 
 
-    <?php require_once("modal_login.php"); ?>
+        <script src="src/node_modules/bootstrap/dist/js/jquery-3.5.1.min.js"></script>
+        <script src="src/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="src/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function() {
+              'use strict';
+              window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                  form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                  }, false);
+                });
+              }, false);
+            })();
 
-    <script>
-        $('#myModal').modal({
-            keyboard: false
-        })
-    </script>
-
-    <script src="src/node_modules/bootstrap/dist/js/jquery-3.5.1.min.js"></script>
-    <script src="src/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="src/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
+        </script>
 </body>
 
 </html>

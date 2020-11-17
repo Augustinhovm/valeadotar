@@ -14,29 +14,8 @@ session_start();
     </head>
     <body>
         <div class="header">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 1px solid #613488;">
-            <a class="navbar-brand" href="#">
-                <img src="../src/assets/img/log.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-            </a>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../index.html">Início </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../index.php">Quero Adotar</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../inserir_animais/index.php">Quero Doar</a>
-                    </li>
-                    
-                </ul>
-            </div>
 
-        </nav>
-
-
-    
+        <?php require_once("menus_topo.php"); ?>
        
         <?php
         if(isset($_SESSION['msg'])){

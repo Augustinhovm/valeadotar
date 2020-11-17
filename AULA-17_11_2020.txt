@@ -8,7 +8,9 @@
 - AUTENTICAÇÃO:
     a certeza de que aquilo é o que diz ser. É alguém registrado (bd).
     Login. Logout.
+    - é feita pelo logar.php
 
+[roles = admin ]
 - AUTORIZAÇÃO:
     Permitir o acesso a quem é devido. 
     Sistema de Escola: Papéis / ROLES - aluno, professor, coordenador, diretor, secretaria, etc...
