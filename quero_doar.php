@@ -61,12 +61,15 @@
                     <div id="mensagem"></div>
                     <?php
 
-                            if (!array_key_exists('Login',$_SESSION))
-                            {
+                    if (!array_key_exists('Login',$_SESSION))
+                    {
 
-                                echo '<div class="alert alert-danger">PARA DOAR, REALIZE LOGIN!</div>';
+                        echo '<div class="alert alert-danger">PARA DOAR, REALIZE LOGIN!</div>';
 
-                            }
+                    } 
+                    else
+                    {
+
                     ?>
                     
                     <div class="form-row">
@@ -161,8 +164,13 @@
                         </div>
                         
                     </div>  
-                </form>              
-            </div>
+                </form>     
+                
+                <?php
+                    } //---| fecha o IF
+                ?>
+            
+        </div>
         </div>
         <div class="footer">
             <div class="jumbotron mt-5 mb-0" style="background-color: #684686; border-radius: 0;">
