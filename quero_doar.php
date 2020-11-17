@@ -1,3 +1,9 @@
+<?php
+
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -53,6 +59,16 @@
 
                 <form class="needs-validation" novalidate  method="POST" action="insert.php"  enctype="multipart/form-data">
                     <div id="mensagem"></div>
+                    <?php
+
+                            if (!array_key_exists('Login',$_SESSION))
+                            {
+
+                                echo '<div class="alert alert-danger">PARA DOAR, REALIZE LOGIN!</div>';
+
+                            }
+                    ?>
+                    
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputName4" class="">Digite o nome do animal</label>

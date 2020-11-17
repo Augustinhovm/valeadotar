@@ -20,7 +20,7 @@ if($sth->rowCount() > 0 )
 
     $linha = $sth->fetch(PDO::FETCH_ASSOC);
 
-    if($linha->email==$email && $linha->senha==$senha)
+    if($linha['email']==$email && $linha['senha']==$senha)
     {
         extract($linha);
 
@@ -31,7 +31,7 @@ if($sth->rowCount() > 0 )
 
         //USUÁRIO AUTENTICADO É DIRECIONADO PARA A PÁGINA APROPRIADA
         header('Location: exemplo.php');
-        
+
     }
     
 }

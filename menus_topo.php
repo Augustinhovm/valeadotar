@@ -21,6 +21,18 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a href="login-cadastro/index.php"><input type="button" class="btn btn-danger mx-3" style="background-color:#613488; color:white; border: 1px solid #3a1e53;" value="Cadastro"></a></input>
-        <input type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" style="color:white; border: 1px solid #ffffff; background-color: #f4aa24" value="Login"></input>
+
+        <?php
+        //SE O USUÁRIO NÃO ESTIVER AUTENTICADO, EXIBE O BOTÃO "LOGIN"
+        if (!array_key_exists('Login',$_SESSION)) 
+        {
+            echo '<input type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" style="color:white; border: 1px solid #ffffff; background-color: #f4aa24" value="Login"></input>';
+        } 
+        else //SE ESTIVER AUTENTICADO, EXIBE O BOTÃO "LOGOUT"
+        { 
+            echo '<a href="logout.php" class="btn btn-warning" style="color:white; border: 1px solid #ffffff; background-color: #f4aa24">LOGOUT</a>';
+        }
+        ?>
+
     </form>
 </nav>
