@@ -172,7 +172,11 @@ $total_animais = mysqli_num_rows($resultado_animais);
 	    				                <p>Porte: '. $rows_animais['ani_porte'] .'</p>
 	    				                <p>Cidade: '. $rows_animais['ani_cidade'] .'</p>	    				
                                         <div class="form-group col-12 text-center"> 
+<<<<<<< HEAD
 	   		 			                    <a href="detalhes.php?ani_id'.$rows_animais['ani_id'].'" class="btn btn-light" style="border: 1px solid #684686;">Adotar</a>
+=======
+	   		 			                    <a href="" class="btn btn-light" style="border: 1px solid #684686;">Adotar</a>
+>>>>>>> 6a5db49a3715b63158a52e1262f44857fbfb2097
                                         </div>
 	  				                </div>
 				            </div>
