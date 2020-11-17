@@ -135,6 +135,36 @@
     </div>
     <br><br><br><br><br><br>
 
+<<<<<<< HEAD
+=======
+                     
+                             
+        <div class="container">	       
+           <div class="row justify-content-center mt-5">            
+
+              <?php while ($rows_animais = mysqli_fetch_assoc($resultado_animais)) { 
+                   echo '<div class="col-lg-3 col-md-6 col-12 mb-4">
+	       		            <div class="card" style="width: 16rem;" >
+	  		 	                 <img src="inserir_animais/upload/'.$rows_animais['ani_id'].'" width="200" height="200" class="card-img-top " style="border-radius: 1%" alt="...">
+  			                        <div class="card-body text-left"   style="color: #684686; ">	  					
+                                        <p>Nome:'. $rows_animais['ani_nome']. '</p>
+	    				                <p>Porte: '. $rows_animais['ani_porte'] .'</p>
+	    				                <p>Cidade: '. $rows_animais['ani_cidade'] .'</p>	    				
+                                        <div class="form-group col-12 text-center"> 
+<<<<<<< HEAD
+	   		 			                    <a href="detalhes.php?ani_id'.$rows_animais['ani_id'].'" class="btn btn-light" style="border: 1px solid #684686;">Adotar</a>
+=======
+	   		 			                    <a href="" class="btn btn-light" style="border: 1px solid #684686;">Adotar</a>
+>>>>>>> 6a5db49a3715b63158a52e1262f44857fbfb2097
+                                        </div>
+	  				                </div>
+				            </div>
+                        </div>';
+                   } 
+                ?>
+		    </div>
+        </div>
+>>>>>>> 04c291bf5c08cce85691e5e4d78b59a41033352d
 
     <div class="row featurette">
       <div class="col-md-7">
