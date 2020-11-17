@@ -135,6 +135,13 @@
                             <input type="text" name="ani_descricao" class="form-control" placeholder="Descrição do animal"  <?=$required?> >
                             <div class="invalid-feedback">Campo obrigatório!</div>
                         </div>
+
+                         <div class="form-group col-md-6">
+                            <label for="inputName4">Digite seu Telefone para contato:</label>
+                            <input type="number" name="ani_telefone" class="form-control" placeholder="Telefone"  <?=$required?> >
+                            <div class="invalid-feedback">Campo obrigatório!</div>
+                        </div>
+
                         <div class="form-group col-md-6">
                             
                             <input type="file"  <?=$required?>  name="arquivo">
@@ -200,53 +207,36 @@
             </div>
         </div>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="container modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Cadastro da Imagem</h5>
-                    </div>
-                    <form name="form" method="post" action="upload.php" enctype="multipart/form-data">
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="Cliente">Selecione sua Identificação</label>
-                                <div class="input-field">
-                                    <select name="arq_ani" id="inputState" class="form-control">
-                                        <?php
-                                        include('../conexao.php');
-                                        $sth = $pdo->prepare("SELECT * FROM usuarios");
-                                        $sth->execute();
-                                        foreach ($sth as $res) {
-                                            extract($res);
-                                            echo '<option value="' . $id_cliente . '">' . $nome_cliente . '</option>';
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Nome da Imagem</label>
-                                <input id="nome" type="text" name="arq_nome" class="form-control"  <?=$required?>  />
-                            </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="exampleModalLabel">Login Vale Adotar </h5>
 
-                            <div class="input-field col-12 mb-3">
-                                <label>Imagem</label>
-                                <div class="file-path-wrapper ">
-                                    <input id="imagem" type="file" name="fileUpload" class="campo"  <?=$required?>  />
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">Browse</div>
-                                    </div>
-                                </div>
-                            </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="logar.php">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">E-mail</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Digite seu e-mail" required>
                         </div>
-                        <div class="modal-footer">
-                            <input class="btn btn-secondary" type="submit" data-dismiss="modal" value="Fechar" />
-                            <input class="btn btn-primary" type="submit" value="Enviar" />
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Senha</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" name="senha" placeholder="Digite sua senha" required>
                         </div>
+                        <input type="submit" class="btn btn-primary" value="Login"></input>
                     </form>
                 </div>
-            </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #f4aa24; color:white; border: 1px solid #f4aa24;" value="Fechar"></input>
+                    <input type="submit" class="btn btn-primary" style="background-color:#613488; color:white; border: 1px solid #684686;" value="Logar"></input>
+                </div>
+            </div>char
         </div>
+    </div>
 
         <script src="../src/node_modules/bootstrap/dist/js/jquery-3.5.1.min.js"></script>
         <script src="../src/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
