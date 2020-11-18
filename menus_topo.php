@@ -20,7 +20,16 @@
         <button class="navbar-toggler" type="button" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a href="cadastromain.php"><input type="button" class="btn btn-danger mx-3" style="background-color:#613488; color:white; border: 1px solid #3a1e53;" value="Cadastro"></a></input>
+
+        <?php
+        //SE O USUÁRIO NÃO ESTIVER AUTENTICADO, EXIBE O BOTÃO "CADASTRO"
+        if (!array_key_exists('Login', $_SESSION)) {
+            echo '<a href="cadastromain.php" class="btn btn-warning" style="color:white; border: 1px solid #ffffff; background-color: #3a1e53">Cadastro</a>';
+        } else //SE ESTIVER AUTENTICADO, ESCONDE O BOTÃO CADASTRO"
+        {
+            echo "";
+        }
+        ?>
 
         <?php
         //SE O USUÁRIO NÃO ESTIVER AUTENTICADO, EXIBE O BOTÃO "LOGIN"
@@ -28,7 +37,7 @@
             echo '<input type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" style="color:white; border: 1px solid #ffffff; background-color: #f4aa24" value="Login"></input>';
         } else //SE ESTIVER AUTENTICADO, EXIBE O BOTÃO "LOGOUT"
         {
-            echo '<a href="logout.php" class="btn btn-warning" style="color:white; border: 1px solid #ffffff; background-color: #f4aa24">LOGOUT</a>';
+            echo '<a href="logout.php" class="btn btn-warning" style="color:white; border: 1px solid #ffffff; background-color: #f4aa24">Logout</a>';
         }
         ?>
 
