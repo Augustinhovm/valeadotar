@@ -3,25 +3,23 @@ session_start();
 
 include 'conexao.php';
 
-$email = filter_input(INPUT_POST, 'email', FILTER_DEFAULT); 
+$email = filter_input(INPUT_POST, 'email', FILTER_DEFAULT);
 $senha = filter_input(INPUT_POST, 'senha', FILTER_DEFAULT);
 
 $sth = $pdo->prepare('SELECT * FROM usuarios WHERE email = :email AND senha = :senha');
-$sth->bindvalue(':email',$email);
-$sth->bindvalue(':senha',$senha);
+$sth->bindvalue(':email', $email);
+$sth->bindvalue(':senha', $senha);
 $sth->execute();
 
 //var_dump($sth->rowCount()); exit;
 
 //AUTENTICAÇÃO
-if($sth->rowCount() > 0 ) 
-{
+if ($sth->rowCount() > 0) {
 
 
     $linha = $sth->fetch(PDO::FETCH_ASSOC);
 
-    if($linha['email']==$email && $linha['senha']==$senha)
-    {
+    if ($linha['email'] == $email && $linha['senha'] == $senha) {
         extract($linha);
 
         $_SESSION['Login']['email'] = $email;
@@ -31,13 +29,8 @@ if($sth->rowCount() > 0 )
 
         //USUÁRIO AUTENTICADO É DIRECIONADO PARA A PÁGINA APROPRIADA
         header('Location: quero_doar.php');
-
     }
-    
-}
-else 
-{
+} else {
 
-   header('Location: index.php');
-
+    header('Location: index.php');
 }

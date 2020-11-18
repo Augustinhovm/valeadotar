@@ -13,7 +13,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="quero_doar.php">Quero Doar</a>
             </li>
-            
+
         </ul>
     </div>
     <form class="form-inline">
@@ -24,12 +24,10 @@
 
         <?php
         //SE O USUÁRIO NÃO ESTIVER AUTENTICADO, EXIBE O BOTÃO "LOGIN"
-        if (!array_key_exists('Login',$_SESSION)) 
-        {
+        if (!array_key_exists('Login', $_SESSION)) {
             echo '<input type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" style="color:white; border: 1px solid #ffffff; background-color: #f4aa24" value="Login"></input>';
-        } 
-        else //SE ESTIVER AUTENTICADO, EXIBE O BOTÃO "LOGOUT"
-        { 
+        } else //SE ESTIVER AUTENTICADO, EXIBE O BOTÃO "LOGOUT"
+        {
             echo '<a href="logout.php" class="btn btn-warning" style="color:white; border: 1px solid #ffffff; background-color: #f4aa24">LOGOUT</a>';
         }
         ?>

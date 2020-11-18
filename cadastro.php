@@ -19,10 +19,10 @@ $endereco = filter_input(INPUT_POST, 'endereco', FILTER_SANITIZE_STRING);
 $result_usuarios = "INSERT INTO usuarios (nome, cidade, email, senha, telefone, endereco) VALUES ('$nome', '$cidade', '$email', '$senha', '$telefone', '$endereco')";
 $resultado_usuarios = mysqli_query($conn, $result_usuarios);
 
-if(mysqli_insert_id($conn)){
+if (mysqli_insert_id($conn)) {
     $_SESSION['msg'] = "<p style='color:green;'>Usuário cadastrado com sucesso</p>";
     header("Location: cadastromain.php");
-}else{
+} else {
     $_SESSION['msg'] = "<p style='color:red;'>Usuário não foi cadastrado</p>";
     header("Location: cadastromain.php");
 }

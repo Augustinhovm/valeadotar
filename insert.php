@@ -9,29 +9,50 @@ $erros = 0;
 
 //---| REALIZA A VALIDAÇÃO DAS ENTRADAS |---
 $nome = filter_input(INPUT_POST, 'ani_nome', FILTER_SANITIZE_STRING);
-if(!$nome){ $erros++;  $msg.="Nome Inválido!<br>"; }
+if (!$nome) {
+	$erros++;
+	$msg .= "Nome Inválido!<br>";
+}
 
 $porte = filter_input(INPUT_POST, 'ani_porte', FILTER_SANITIZE_STRING);
-if(!$porte){ $erros++;  $msg.="Porte Inválido!<br>"; }
+if (!$porte) {
+	$erros++;
+	$msg .= "Porte Inválido!<br>";
+}
 
 $genero = filter_input(INPUT_POST, 'ani_genero', FILTER_SANITIZE_STRING);
-if(!$genero){ $erros++;  $msg.="Genero Inválido!<br>"; }
+if (!$genero) {
+	$erros++;
+	$msg .= "Genero Inválido!<br>";
+}
 
 $cidade = filter_input(INPUT_POST, 'ani_cidade', FILTER_SANITIZE_STRING);
-if(!$cidade){ $erros++;  $msg.="Cidade Inválido!<br>"; }
+if (!$cidade) {
+	$erros++;
+	$msg .= "Cidade Inválido!<br>";
+}
 
 $especie = filter_input(INPUT_POST, 'ani_especie', FILTER_SANITIZE_STRING);
-if(!$especie){ $erros++;  $msg.="Espécie Inválido!<br>"; }
+if (!$especie) {
+	$erros++;
+	$msg .= "Espécie Inválido!<br>";
+}
 
 $descricao = filter_input(INPUT_POST, 'ani_descricao', FILTER_SANITIZE_STRING);
-if(!$descricao){ $erros++;  $msg.="Descrição Inválido!<br>"; }
+if (!$descricao) {
+	$erros++;
+	$msg .= "Descrição Inválido!<br>";
+}
 
 $telefone = filter_input(INPUT_POST, 'ani_telefone', FILTER_SANITIZE_STRING);
-if(!$telefone){ $erros++;  $msg.="Telefone Inválido!<br>"; }
+if (!$telefone) {
+	$erros++;
+	$msg .= "Telefone Inválido!<br>";
+}
 //---
- 
+
 //---| VALIDA SE HÁ ERROS DE PREENCHIMENTO |---
-if ($erros>0) { 
+if ($erros > 0) {
 	header("Location: quero_doar.php?msg_erro=" . $msg);
 }
 //---
@@ -45,34 +66,31 @@ $query = "INSERT INTO
 		  VALUES 
 			('$nome', '$porte', '$genero', '$cidade', '$especie', '$descricao', '$telefone')";
 $resultado_usuarios = mysqli_query($conn, $query);
-if($idDoUltimoAnimalInserido = mysqli_insert_id($conn))
-{
-    $msg = 'Pet cadastrado com sucesso<br>';
-   
+if ($idDoUltimoAnimalInserido = mysqli_insert_id($conn)) {
+	$msg = 'Pet cadastrado com sucesso<br>';
 }
 
 
-if (isset($_FILES['arquivo'])) { 
+if (isset($_FILES['arquivo'])) {
 
 
 	$extensao  = strtolower(substr($_FILES['arquivo']['name'], -4));
-	$novo_nome = $idDoUltimoAnimalInserido.$extensao;
+	$novo_nome = $idDoUltimoAnimalInserido . $extensao;
 	$diretorio = "upload/";
 
 	$msg_img = "Falha ao enviar aquivo.<br>";
-	if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $diretorio.$novo_nome)) {
+	if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $diretorio . $novo_nome)) {
 		$msg_img = 'Foto cadastrada!<br>';
 	}
 
 	$sql_code = "INSERT INTO arquivo (codigo, arquivo, data) VALUES(null, '$novo_nome', NOW())";
-   
-	if($conn->query($sql_code)) {
-		$msg.= "Arquivo enviado com sucesso!<br>";
-	}
 
+	if ($conn->query($sql_code)) {
+		$msg .= "Arquivo enviado com sucesso!<br>";
+	}
 }
 
- header("Location: quero_doar.php?msg_success=" .  $msg . $msg_img);
+header("Location: quero_doar.php?msg_success=" .  $msg . $msg_img);
 
 //echo "Nome: $nome <br>";
 //echo "Cidade: $cidade <br>";
@@ -104,5 +122,3 @@ $pdo->lastInsertId();
 
 $sth->execute();
 header("LOCATION: index.php");*/
-
-

@@ -7,5 +7,3 @@
 
     //REDIRECIONAR PARA O INDEX APÓS LOGOUT
     header("location: index.php");
-
-?>
