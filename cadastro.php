@@ -10,11 +10,6 @@ $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_EMAIL);
 $telefone = filter_input(INPUT_POST, 'telefone', FILTER_SANITIZE_STRING);
 $endereco = filter_input(INPUT_POST, 'endereco', FILTER_SANITIZE_STRING);
 
-//echo "Nome: $nome <br>";
-//echo "Cidade: $cidade <br>";
-//echo "Email: $email <br>";
-//echo "Telefone: $telefone <br>";
-//echo "Endereço: $endereco <br>";
 
 $result_usuarios = "INSERT INTO usuarios (nome, cidade, email, senha, telefone, endereco) VALUES ('$nome', '$cidade', '$email', '$senha', '$telefone', '$endereco')";
 $resultado_usuarios = mysqli_query($conn, $result_usuarios);

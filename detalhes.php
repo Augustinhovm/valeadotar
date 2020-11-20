@@ -18,7 +18,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="src/assets/css/style.css">    
+    <link rel="stylesheet" href="src/assets/css/style.css">
     <title>Detalhes</title>
 </head>
 
@@ -37,10 +37,10 @@ $total_animais = mysqli_num_rows($resultado_animais);
                 <div class="row">
                     <div class="col-md-4">
                         <figure>
-                     <?php while ($rows_animais = mysqli_fetch_assoc($resultado_animais)) {
-                          echo  '<img src="upload/' . $rows_animais['ani_id'] . '" width="500" height="300" class="rounded" style="border-radius: 1%" alt="...">';
+                            <?php while ($rows_animais = mysqli_fetch_assoc($resultado_animais)) {
+                                echo  '<img src="upload/' . $rows_animais['ani_id'] . '" width="500" height="300" class="rounded" style="border-radius: 1%" alt="...">';
                             }
-                     ?>
+                            ?>
 
                         </figure>
 
@@ -50,16 +50,16 @@ $total_animais = mysqli_num_rows($resultado_animais);
                     </div>
 
                     <div class="col-md-3">
-                     <h5><?php echo $row_animais['ani_genero'];  ?></h5>
-                    <h5><?php echo $row_animais['ani_especie'];  ?></h5>
-                    <h5><?php echo $row_animais['ani_porte'];  ?></h5>
-                    <h5><?php echo $row_animais['ani_descricao'];  ?></h5>
-                    <h5><?php echo $row_animais['ani_doador'];  ?></h5>
-                    <h5><?php echo $row_animais['ani_telefone'];  ?></h5>
-                    <h5><?php echo $row_animais['ani_email'];  ?></h5>
-                    <h5><?php echo $row_animais['ani_cidade'];  ?></h5>
+                        <h5><?php echo "Gênero: " . $row_animais['ani_genero'];  ?></h5>
+                        <h5><?php echo "Espécie: " . $row_animais['ani_especie'];  ?></h5>
+                        <h5><?php echo "Porte: " . $row_animais['ani_porte'];  ?></h5>
+                        <h5><?php echo "Descrição: " . $row_animais['ani_descricao'];  ?></h5>
+                        <h5><?php echo "Doador: " . $row_animais['ani_doador'];  ?></h5>
+                        <h5><?php echo "Telefone: " . $row_animais['ani_telefone'];  ?></h5>
+                        <h5><?php echo "Email: " . $row_animais['ani_email'];  ?></h5>
+                        <h5><?php echo "Cidade: " . $row_animais['ani_cidade'];  ?></h5>
                     </div>
-                    
+
                 </div>
             </div>
         </div>

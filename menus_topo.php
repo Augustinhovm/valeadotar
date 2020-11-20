@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 1px solid #613488;">
     <a class="navbar-brand" href="index.php">
         <img src="src/assets/img/log.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
@@ -28,7 +27,7 @@
             echo '<a href="cadastromain.php" class="btn btn-warning" style="color:white; border: 1px solid #ffffff; background-color: #3a1e53">Cadastro</a>';
         } else //SE ESTIVER AUTENTICADO, ESCONDE O BOTÃO CADASTRO"
         {
-            echo "";
+            echo '<a href="meus_pets.php" class="btn btn-warning" style="color:white; border: 1px solid #ffffff; background-color: #3a1e53">Meus Pets</a>';
         }
         ?>
 
@@ -44,5 +43,3 @@
 
     </form>
 </nav>
-
-    

@@ -32,89 +32,6 @@ $total_animais = mysqli_num_rows($resultado_animais);
 
         <?php require_once("menus_topo.php"); ?>
 
-        <div class="section">
-            <div id="carousel" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="src/assets/img/1.png" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="src/assets/img/2.png" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="src/assets/img/3.png" class="d-block w-100" alt="...">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-
-        <div class="container w-100">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="jumbotron" id="formprincipal" style="margin-top: -70px; background-color: #f4aa24;">
-                        <form class="text-center" style="color: white">
-                            <p style="font-size: 40px; font-family: cursive; text-align: center; margin-top: -20px;">
-                                Encontre seu novo amigo</p>
-                            <div class="form-row ">
-                                <div class="form-group col-md-6">
-                                    <label for="inputtext1">Espécie</label>
-                                    <select class="form-control" name="ani_especie" id="sel1" placeholder="Espécie" required>
-                                        <option selected></option>
-                                        <option>Gato</option>
-                                        <option>Cachorro</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputtext2">Porte</label>
-                                    <select class="form-control" name="ani_porte" id="sel1" placeholder="Porte" required>
-                                        <option selected></option>
-                                        <option>Pequeno</option>
-                                        <option>Medio</option>
-                                        <option>Grande</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputtext3">Gênero</label>
-                                    <select class="form-control" name="ani_genero" id="sel1" placeholder="Gênero" required>
-                                        <option selected></option>
-                                        <option>Femea</option>
-                                        <option>Macho</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputtext4">Cidade</label>
-                                    <select class="form-control" name="ani_cidade" id="sel1" placeholder="Cidade" required>
-                                        <option selected></option>
-                                        <option>Aparecida</option>
-                                        <option>Cachoeira Paulista</option>
-                                        <option>Guaratinguetá</option>
-                                        <option>Lorena</option>
-                                        <option>Pindamonhangaba</option>
-                                        <option>Potim</option>
-                                        <option>Roseira</option>
-                                    </select>
-                                </div>
-                            </div>
-
-
-                            <div class="row justify-content-center">
-                                <button type="button" class="btn btn-danger mt-5" style="background-color:#613488; color:white; border: 1px solid #684686;">Procurar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
 
@@ -125,9 +42,8 @@ $total_animais = mysqli_num_rows($resultado_animais);
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <p class="my-4" style="font-size: 40px; font-family: cursive; text-align: center; margin-top: -20px; color: #f4aa24;">
-                            Novos no Site</p>
-                        <h4><span>Nosso site está cheio de peludos ansiosos pra ter uma família. Tente diferentes buscas até
-                                encontrar um peludo pra chamar de seu. :) </span></h4>
+                            MEUS PETS!</p>
+                        <h4><span>Modifique informações ou remova o anuncio após doação :) </span></h4>
                     </div>
                 </div>
             </div>
