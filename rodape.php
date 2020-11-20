@@ -22,8 +22,8 @@
                         <span>Não perca seu amigo</span><br>
                     </div>
                     <div class="col-md-3 my-3">
-                        <img src="src/assets/img/logo.png" class="img-fluid mb-4" style="width: 50%; border-radius: 1%" alt="...">
-                        <span>FALE@AMIGONAOSECOMPRA.COM.BR</span>
+                        <img src="src/assets/img/Valeadotar.png" class="img-fluid mb-4" style="width: 50%; border-radius: 1%" alt="...">
+                        <span>Valeadotar@gmail.com</span>
                     </div>
                 </div>
             </div>

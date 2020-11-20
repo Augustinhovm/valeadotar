@@ -130,6 +130,16 @@ session_start();
                                 <input type="number" name="ani_telefone" class="form-control" placeholder="Telefone" <?= $required ?>>
                                 <div class="invalid-feedback">Campo obrigatório!</div>
                             </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputName4">Digite seu Email para contato:</label>
+                                <input type="email" name="ani_email" class="form-control" placeholder="Email do Doador" <?= $required ?>>
+                                <div class="invalid-feedback">Campo obrigatório!</div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputName4">Digite seu nome para contato:</label>
+                                <input type="text" name="ani_doador" class="form-control" placeholder="Nome do Doador" <?= $required ?>>
+                                <div class="invalid-feedback">Campo obrigatório!</div>
+                            </div>
 
                             <div class="form-group col-md-6">
 
