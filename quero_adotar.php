@@ -23,6 +23,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="src/assets/css/style.css">
+
     <title>Title</title>
 </head>
 
@@ -74,7 +75,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputtext2">Porte</label>
-                                    <select class="form-control" name="ani_porte" id="sel1" placeholder="Porte" required>
+                                    <select class="form-control" name="ani_porte" id="sel2" placeholder="Porte" required>
                                         <option selected></option>
                                         <option>Pequeno</option>
                                         <option>Medio</option>
@@ -85,7 +86,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputtext3">Gênero</label>
-                                    <select class="form-control" name="ani_genero" id="sel1" placeholder="Gênero" required>
+                                    <select class="form-control" name="ani_genero" id="sel3" placeholder="Gênero" required>
                                         <option selected></option>
                                         <option>Femea</option>
                                         <option>Macho</option>
@@ -93,7 +94,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputtext4">Cidade</label>
-                                    <select class="form-control" name="ani_cidade" id="sel1" placeholder="Cidade" required>
+                                    <select class="form-control" name="ani_cidade" id="sel4" placeholder="Cidade" required>
                                         <option selected></option>
                                         <option>Aparecida</option>
                                         <option>Cachoeira Paulista</option>
@@ -108,7 +109,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
 
 
                             <div class="row justify-content-center">
-                                <button type="button" class="btn btn-danger mt-5" style="background-color:#613488; color:white; border: 1px solid #684686;">Procurar</button>
+                                <button type="button" class="btn btn-danger mt-5" id="buscar" style="background-color:#613488; color:white; border: 1px solid #684686;">Procurar</button>
                             </div>
                         </form>
                     </div>
@@ -137,26 +138,27 @@ $total_animais = mysqli_num_rows($resultado_animais);
 
 
         <div class="container">
-            <div class="row justify-content-center mt-5">
-
+            <div class="row justify-content-center mt-5" id="dados">
                 <?php while ($rows_animais = mysqli_fetch_assoc($resultado_animais)) {
                     echo '<div class="col-lg-3 col-md-6 col-12 mb-4">
-	       		            <div class="card" style="width: 16rem;" >
-	  		 	                 <img src="upload/' . $rows_animais['ani_id'] . '" width="200" height="200" class="card-img-top " style="border-radius: 1%" alt="...">
-  			                        <div class="card-body text-left"   style="color: #684686; ">	  					
+                            <div class="card" style="width: 16rem;" >
+                                 <img src="upload/' . $rows_animais['ani_id'] . '" width="200" height="200" class="card-img-top " style="border-radius: 1%" alt="...">
+                                    <div class="card-body text-left"   style="color: #684686; ">                        
                                         <p>Nome: ' . $rows_animais['ani_nome'] . '</p>
-	    				                <p>Porte: ' . $rows_animais['ani_porte'] . '</p>
+                                        <p>Porte: ' . $rows_animais['ani_porte'] . '</p>
                                         <p>Cidade: ' . $rows_animais['ani_cidade'] . '</p>
                                         <p>Gênero: ' . $rows_animais['ani_genero'] . '</p>
-                                        <p>Espécie: ' . $rows_animais['ani_especie'] . '</p>	    				
+                                        <p>Espécie: ' . $rows_animais['ani_especie'] . '</p>                        
                                         <div class="form-group col-12 text-center"> 
-	   		 			                    <a href="detalhes.php?ani_id=' . $rows_animais['ani_id'] . ' class="btn btn-light" style="border: 1px solid #684686;">Adotar</a>
+                                            <a href="detalhes.php?ani_id=' . $rows_animais['ani_id'] . ' class="btn btn-light" style="border: 1px solid #684686;">Adotar</a>
                                         </div>
-	  				                </div>
-				            </div>
+                                    </div>
+                            </div>
                         </div>';
                 }
                 ?>
+
+
             </div>
         </div>
 
@@ -263,6 +265,46 @@ $total_animais = mysqli_num_rows($resultado_animais);
     <script src="src/node_modules/bootstrap/dist/js/jquery-3.5.1.min.js"></script>
     <script src="src/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="src/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        $('#buscar').click(function() {
+            var palavra1 = $("#sel1").val()
+            var palavra2 = $("#sel2").val()
+            var palavra3 = $("#sel3").val()
+            var palavra4 = $("#sel4").val()
+            //  var palavra3 = $(#palavra3)
+
+
+
+            var page = "busca_pet.php";
+            $.ajax({
+                type: 'POST',
+                dataType: 'html',
+                url: page,
+                beforeSend: function() {
+                    $("#dados").html("Carregando...");
+                },
+                data: {
+                    palavra1: palavra1,
+                    palavra2: palavra2,
+                    palavra3: palavra3,
+                    palavra4: palavra4
+                },
+
+                success: function(msg) {
+                    $("#dados").html(msg);
+                }
+            });
+
+
+        });
+
+
+        $('#buscar').click(function() {
+            buscar($("#palavra").val())
+        });
+    </script>
+
 
 </body>
 
