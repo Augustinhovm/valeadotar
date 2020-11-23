@@ -151,7 +151,7 @@ $resultado_animais = mysqli_query($conn, $query);
                 </div>
             </div>
 
-            <div class="text-center"><a href="quero_adotar.php" class="btn btn-warning" style="color:white; border: 1px solid #ffffff; background-color: #f4aa24">Voltar Pesquisa</a> </div>
+            <div class="text-center"><a href="quero_adotar.php" class="btn btn-warning" style="color:white; border: 1px solid #ffffff; background-color: #f4aa24">Voltar</a> </div>
 
             <div class="section">
                 <div class="container w-100">

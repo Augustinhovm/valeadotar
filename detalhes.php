@@ -23,43 +23,80 @@ $total_animais = mysqli_num_rows($resultado_animais);
 </head>
 
 <body>
+
+    <style type="text/css">
+        .row {
+            font-family: 'Titillium Web', sans-serif;
+        }
+
+        .section-nome-animal {
+            font-family: 'Titillium Web', sans-serif;
+        }
+    </style>
+
     <div class="header">
         <?php require_once("menus_topo.php"); ?>
+        <div class="container">
 
-        <div class="section-nome-animal">
-            <div class="container">
-                <h1><?php echo $row_animais['ani_nome'];  ?></h1>
+
+            <div class="section-nome-animal">
+                <div class="container">
+                    <div class="text-center">
+                        <br>
+                        <h1><?php echo $row_animais['ani_nome'];  ?></h1>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="section-detalhes">
-            <div class="container mt-5">
+            <div class="section-detalhes">
+                <div class="container mt-5">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <figure>
+                                <?php while ($rows_animais = mysqli_fetch_assoc($resultado_animais)) {
+                                    echo  '<img src="upload/' . $rows_animais['ani_id'] . '" width="500" height="400" class="rounded" style="border-radius: 1%" alt="...">';
+                                }
+                                ?>
+
+                            </figure>
+
+                        </div>
+                        <div class="col-md-4">
+
+                        </div>
+
+                        <div class="col-md-3 jumbotron">
+                            <h6><?php echo "Gênero: " . $row_animais['ani_genero'];  ?></h6>
+                            <h6><?php echo "Espécie: " . $row_animais['ani_especie'];  ?></h6>
+                            <h6><?php echo "Porte: " . $row_animais['ani_porte'];  ?></h6>
+                            <h6><?php echo "Descrição: " . $row_animais['ani_descricao'];  ?></h6>
+                            <h6><?php echo "Doador: " . $row_animais['ani_doador'];  ?></h6>
+                            <h6><?php echo "Telefone: " . $row_animais['ani_telefone'];  ?></h6>
+                            <h6><?php echo "Email: " . $row_animais['ani_email'];  ?></h6>
+                            <h6><?php echo "Cidade: " . $row_animais['ani_cidade'];  ?></h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br><br><br><br>
+
+            <div class="texto_importante">
                 <div class="row">
-                    <div class="col-md-4">
-                        <figure>
-                            <?php while ($rows_animais = mysqli_fetch_assoc($resultado_animais)) {
-                                echo  '<img src="upload/' . $rows_animais['ani_id'] . '" width="500" height="300" class="rounded" style="border-radius: 1%" alt="...">';
-                            }
-                            ?>
-
-                        </figure>
-
+                    <div class="container  jumbotron">
+                        <br>
+                        <h1>Atenção!</h1>
+                        <br>
+                        <h6>Não permitimos a venda de animais através do site. No entanto, alguns protetores solicitam uma taxa de adoção para ajudar nos custos com resgates e cuidados necessários. Se estiver inseguro quanto à seriedade da cobrança, escreva para Valeadotar@gmail.com.</h6>
+                        <br>
+                        <h2>E antes de adotar, lembre-se:</h2>
+                        <br>
+                        <h6>Animais têm sentimentos. Eles precisam de carinho e atenção todos os dias.</h6>
+                        <h6>Todos os moradores da casa devem estar de acordo com a adoção.</h6>
+                        <h6>Ao viajar, precisará deixá-lo com alguém de confiança.</h6>
+                        <h6>Você terá despesas com ração, vacinas e veterinário.</h6>
+                        <h6>Cães e gatos vivem 15 anos ou mais e você será responsável por cuidar dele durante todo esse tempo. ;)</h6>
                     </div>
-                    <div class="col-md-4">
-
-                    </div>
-
-                    <div class="col-md-3">
-                        <h5><?php echo "Gênero: " . $row_animais['ani_genero'];  ?></h5>
-                        <h5><?php echo "Espécie: " . $row_animais['ani_especie'];  ?></h5>
-                        <h5><?php echo "Porte: " . $row_animais['ani_porte'];  ?></h5>
-                        <h5><?php echo "Descrição: " . $row_animais['ani_descricao'];  ?></h5>
-                        <h5><?php echo "Doador: " . $row_animais['ani_doador'];  ?></h5>
-                        <h5><?php echo "Telefone: " . $row_animais['ani_telefone'];  ?></h5>
-                        <h5><?php echo "Email: " . $row_animais['ani_email'];  ?></h5>
-                        <h5><?php echo "Cidade: " . $row_animais['ani_cidade'];  ?></h5>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -68,8 +105,8 @@ $total_animais = mysqli_num_rows($resultado_animais);
 
 
 
-    </div>
 
+    </div>
     <script src="src/node_modules/bootstrap/dist/js/jquery-3.5.1.min.js"></script>
     <script src="src/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="src/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
