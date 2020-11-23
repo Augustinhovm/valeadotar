@@ -23,7 +23,6 @@ $total_animais = mysqli_num_rows($resultado_animais);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="src/assets/css/style.css">
-
     <title>Title</title>
 </head>
 
@@ -61,13 +60,13 @@ $total_animais = mysqli_num_rows($resultado_animais);
             <div class="row">
                 <div class="col-md-12">
                     <div class="jumbotron" id="formprincipal" style="margin-top: -70px; background-color: #f4aa24;">
-                        <form class="text-center" style="color: white">
+                        <form class="text-center" style="color: white" action="busca.php">
                             <p style="font-size: 40px; font-family: cursive; text-align: center; margin-top: -20px;">
                                 Encontre seu novo amigo</p>
                             <div class="form-row ">
                                 <div class="form-group col-md-6">
                                     <label for="inputtext1">Espécie</label>
-                                    <select class="form-control" name="ani_especie" id="sel1" placeholder="Espécie" required>
+                                    <select class="form-control" name="ani_especie" id="sel1" placeholder="Espécie">
                                         <option selected></option>
                                         <option>Gato</option>
                                         <option>Cachorro</option>
@@ -75,7 +74,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputtext2">Porte</label>
-                                    <select class="form-control" name="ani_porte" id="sel2" placeholder="Porte" required>
+                                    <select class="form-control" name="ani_porte" id="sel1" placeholder="Porte">
                                         <option selected></option>
                                         <option>Pequeno</option>
                                         <option>Medio</option>
@@ -86,7 +85,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputtext3">Gênero</label>
-                                    <select class="form-control" name="ani_genero" id="sel3" placeholder="Gênero" required>
+                                    <select class="form-control" name="ani_genero" id="sel1" placeholder="Gênero">
                                         <option selected></option>
                                         <option>Femea</option>
                                         <option>Macho</option>
@@ -94,7 +93,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputtext4">Cidade</label>
-                                    <select class="form-control" name="ani_cidade" id="sel4" placeholder="Cidade" required>
+                                    <select class="form-control" name="ani_cidade" id="sel1" placeholder="Cidade">
                                         <option selected></option>
                                         <option>Aparecida</option>
                                         <option>Cachoeira Paulista</option>
@@ -109,7 +108,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
 
 
                             <div class="row justify-content-center">
-                                <button type="button" class="btn btn-danger mt-5" id="buscar" style="background-color:#613488; color:white; border: 1px solid #684686;">Procurar</button>
+                                <button type="submit" class="btn btn-danger mt-5" style="background-color:#613488; color:white; border: 1px solid #684686;">Procurar</button>
                             </div>
                         </form>
                     </div>
@@ -134,9 +133,6 @@ $total_animais = mysqli_num_rows($resultado_animais);
             </div>
         </div>
 
-
-
-
         <div class="container">
             <div class="row justify-content-center mt-5" id="dados">
                 <?php while ($rows_animais = mysqli_fetch_assoc($resultado_animais)) {
@@ -157,7 +153,6 @@ $total_animais = mysqli_num_rows($resultado_animais);
                         </div>';
                 }
                 ?>
-
 
             </div>
         </div>
@@ -265,46 +260,6 @@ $total_animais = mysqli_num_rows($resultado_animais);
     <script src="src/node_modules/bootstrap/dist/js/jquery-3.5.1.min.js"></script>
     <script src="src/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="src/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
-    <script>
-        $('#buscar').click(function() {
-            var palavra1 = $("#sel1").val()
-            var palavra2 = $("#sel2").val()
-            var palavra3 = $("#sel3").val()
-            var palavra4 = $("#sel4").val()
-            //  var palavra3 = $(#palavra3)
-
-
-
-            var page = "busca_pet.php";
-            $.ajax({
-                type: 'POST',
-                dataType: 'html',
-                url: page,
-                beforeSend: function() {
-                    $("#dados").html("Carregando...");
-                },
-                data: {
-                    palavra1: palavra1,
-                    palavra2: palavra2,
-                    palavra3: palavra3,
-                    palavra4: palavra4
-                },
-
-                success: function(msg) {
-                    $("#dados").html(msg);
-                }
-            });
-
-
-        });
-
-
-        $('#buscar').click(function() {
-            buscar($("#palavra").val())
-        });
-    </script>
-
 
 </body>
 
