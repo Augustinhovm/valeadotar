@@ -151,6 +151,7 @@ $resultado_animais = mysqli_query($conn, $query);
                 </div>
             </div>
 
+            <div class="text-center"><input type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" style="color:white; border: 1px solid #ffffff; background-color: #f4aa24" value="Voltar"></input> </div>
 
             <div class="section">
                 <div class="container w-100">
