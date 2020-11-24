@@ -54,7 +54,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
                         <div class="col-md-4">
                             <figure>
                                 <?php while ($rows_animais = mysqli_fetch_assoc($resultado_animais)) {
-                                    echo  '<img src="upload/' . $rows_animais['ani_id'] . '" width="500" height="400" class="rounded" style="border-radius: 1%" alt="...">';
+                                    echo  '<img src="upload/' . $rows_animais['ani_id'] . '" width="600" height="400" class="rounded" style="border-radius: 1%" alt="...">';
                                 }
                                 ?>
 
