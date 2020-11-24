@@ -7,13 +7,8 @@ $result_animais = "SELECT * FROM animais";
 $resultado_animais = mysqli_query($conn, $result_animais);
 $total_animais = mysqli_num_rows($resultado_animais);
 $quantidade_pagina = 8;
-<<<<<<< HEAD
 $num_pagina = ceil($total_animais / $quantidade_pagina);
 $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
-=======
-$num_pagina = ceil($total_animais/$quantidade_pagina);
-$inicio = ($quantidade_pagina*$pagina)-$quantidade_pagina;
->>>>>>> c95243dea7c77fe8f09a38852391bf2de51d7aea
 
 $result_animais2 = "SELECT * FROM animais limit $inicio, $quantidade_pagina";
 $resultado_animais = mysqli_query($conn, $result_animais2);
@@ -34,11 +29,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
 <body>
 
     <div class="header">
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> c95243dea7c77fe8f09a38852391bf2de51d7aea
         <?php require_once("menus_topo.php"); ?>
 
         <div class="section">
@@ -69,17 +60,12 @@ $total_animais = mysqli_num_rows($resultado_animais);
             <div class="row">
                 <div class="col-md-12">
                     <div class="jumbotron" id="formprincipal" style="margin-top: -70px; background-color: #f4aa24;">
-<<<<<<< HEAD
                         <form class="text-center" style="color: white" action="busca.php">
-=======
-                        <form class="text-center" style="color: white">
->>>>>>> c95243dea7c77fe8f09a38852391bf2de51d7aea
                             <p style="font-size: 40px; font-family: cursive; text-align: center; margin-top: -20px;">
                                 Encontre seu novo amigo</p>
                             <div class="form-row ">
                                 <div class="form-group col-md-6">
                                     <label for="inputtext1">Espécie</label>
-<<<<<<< HEAD
                                     <select class="form-control" name="ani_especie" id="sel1" placeholder="Espécie">
                                         <option selected></option>
                                         <option>Gato</option>
@@ -94,28 +80,11 @@ $total_animais = mysqli_num_rows($resultado_animais);
                                         <option>Medio</option>
                                         <option>Grande</option>
                                     </select>
-=======
-                                <select class="form-control" name="ani_especie" id="sel1" placeholder="Espécie" required>
-                                    <option selected></option>
-                                    <option>Gato</option>
-                                    <option>Cachorro</option>
-                                </select>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputtext2">Porte</label>
-                                <select class="form-control" name="ani_porte" id="sel1" placeholder="Porte" required>
-                                    <option selected></option>
-                                    <option>Pequeno</option>
-                                    <option>Medio</option>
-                                    <option>Grande</option>
-                                </select>
->>>>>>> c95243dea7c77fe8f09a38852391bf2de51d7aea
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputtext3">Gênero</label>
-<<<<<<< HEAD
                                     <select class="form-control" name="ani_genero" id="sel1" placeholder="Gênero">
                                         <option selected></option>
                                         <option>Femea</option>
@@ -140,32 +109,6 @@ $total_animais = mysqli_num_rows($resultado_animais);
 
                             <div class="row justify-content-center">
                                 <button type="submit" class="btn btn-danger mt-5" style="background-color:#613488; color:white; border: 1px solid #684686;">Procurar</button>
-=======
-                                <select class="form-control" name="ani_genero" id="sel1" placeholder="Gênero" required>
-                                    <option selected></option>
-                                    <option>Femea</option>
-                                    <option>Macho</option>
-                                </select>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputtext4">Cidade</label>
-                                <select class="form-control" name="ani_cidade" id="sel1" placeholder="Cidade" required>
-                                    <option selected></option>
-                                    <option>Aparecida</option>
-                                    <option>Cachoeira Paulista</option>
-                                    <option>Guaratinguetá</option>
-                                    <option>Lorena</option>
-                                    <option>Pindamonhangaba</option>
-                                    <option>Potim</option>
-                                    <option>Roseira</option>
-                                </select>
-                                </div>
-                            </div>
-
-                            
-                            <div class="row justify-content-center">
-                                <button type="button" class="btn btn-danger mt-5" style="background-color:#613488; color:white; border: 1px solid #684686;">Procurar</button>
->>>>>>> c95243dea7c77fe8f09a38852391bf2de51d7aea
                             </div>
                         </form>
                     </div>
@@ -183,18 +126,12 @@ $total_animais = mysqli_num_rows($resultado_animais);
                     <div class="col-md-12 text-center">
                         <p class="my-4" style="font-size: 40px; font-family: cursive; text-align: center; margin-top: -20px; color: #f4aa24;">
                             Novos no Site</p>
-<<<<<<< HEAD
                         <h4><span>Nosso site está cheio de peludos ansiosos pra ter uma família. Tente diferentes buscas até
                                 encontrar um peludo pra chamar de seu. :) </span></h4>
-=======
-                       <h4><span>Nosso site está cheio de peludos ansiosos pra ter uma família. Tente diferentes buscas até
-                            encontrar um peludo pra chamar de seu. :) </span></h4>
->>>>>>> c95243dea7c77fe8f09a38852391bf2de51d7aea
                     </div>
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
 
         <div class="container">
             <div class="row justify-content-center mt-5" id="dados">
@@ -301,162 +238,15 @@ $total_animais = mysqli_num_rows($resultado_animais);
                         <div class="col-md-8">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut iure maxime fugiat non
                                 ullam tempore, ipsum, consequuntur </p>
-=======
-            
-
-                     
-                             
-        <div class="container">	       
-           <div class="row justify-content-center mt-5">            
-
-              <?php while ($rows_animais = mysqli_fetch_assoc($resultado_animais)) { 
-                   echo '<div class="col-lg-3 col-md-6 col-12 mb-4">
-	       		            <div class="card" style="width: 16rem;" >
-	  		 	                 <img src="inserir_animais/upload/'.$rows_animais['ani_id'].'" width="200" height="200" class="card-img-top " style="border-radius: 1%" alt="...">
-  			                        <div class="card-body text-left"   style="color: #684686; ">	  					
-                                        <p>Nome:'. $rows_animais['ani_nome']. '</p>
-	    				                <p>Porte: '. $rows_animais['ani_porte'] .'</p>
-	    				                <p>Cidade: '. $rows_animais['ani_cidade'] .'</p>	    				
-                                        <div class="form-group col-12 text-center"> 
-	   		 			                    <a href="" class="btn btn-light" style="border: 1px solid #684686;">Adotar</a>
-                                        </div>
-	  				                </div>
-				            </div>
-                        </div>';
-                   } 
-                ?>
-		    </div>
-        </div>
-
-			<?php
-				$pagina_anterior = $pagina - 1;
-				$pagina_posterior = $pagina +1;
-			?>
-
-				
-
-					
-				<nav aria-label="Page navigation example" >
- 					 <ul class="pagination justify-content-center" >
-   						 <li class="page-item">
-   						 	<?php 
-   						 		if($pagina_anterior !=0){ ?>
-   						 			 <a class="page-link" href="index.php?pagina=<?php echo $pagina_anterior; ?>" aria-label="Previous">
-        							<span aria-hidden="true">&laquo;</span>
-     						 </a>
-     						  <?php } else{ ?>
-   						 		<?php } ?>
-   						 </li>
-   						 <?php 
-   						 	for ($i=1; $i < $num_pagina + 1; $i++) { ?>
-   						 		<li class="page-item"><a class="page-link" href="index.php?pagina=<?php echo $i; ?>"><?php echo $i; ?></a></li>
-
-   						<?php } ?>
-    						
-    					 <li class="page-item">
-      						 <li class="page-item">
-      						<?php 
-   						 		if($pagina_posterior <= $num_pagina){ ?>
-   						 			 <a class="page-link" href="index.php?pagina=<?php echo $pagina_posterior; ?>" aria-label="Next">
-        							<span aria-hidden="true">&raquo;</span>
-     						 </a>
-     						  <?php } else{ ?>
-   						 		<?php } ?>
-    					</li>
-  					</ul>
-				</nav>
-                </div>
-
-                 
-               
-
-            <div class="section">
-                <div class="container w-100">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <p class="my-4" style="font-size: 40px; font-family: cursive; text-align: center; margin-top: -20px; color: #f4aa24;">
-                                Por que adotar?</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <img src="src/assets/img/log.png" class="img-fluid" style="border-radius: 1%" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut iure maxime fugiat non
-                                        ullam tempore, ipsum, consequuntur </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <img src="src/assets/img/log.png" class="img-fluid" style="border-radius: 1%" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut iure maxime fugiat non
-                                        ullam tempore, ipsum, consequuntur </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <img src="src/assets/img/log.png" class="img-fluid" style="border-radius: 1%" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut iure maxime fugiat non
-                                        ullam tempore, ipsum, consequuntur </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <div class="jumbotron mt-5 mb-0" style="background-color: #684686; border-radius: 0;">
-                <div class="row">
-                    <div class="col-md-12 text-center text-light">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <p>Quer um Amigo?</p>
-                                <span>Adoção reponsável</span><br>
-                                <span>Procure um amigo</span><br>
-                                <span>Inspire-se</span><br>
-                            </div>
-                            <div class="col-md-3">
-                                <p>Quem somos</p>
-                                <span>Sobre nós</span><br>
-                                <span>Perguntas frequentes</span><br>
-                                <span>Fale conosco</span><br>
-                            </div>
-                            <div class="col-md-3">
-                                <p>Melhores Amigos</p>
-                                <span>Dicas e cuidados</span><br>
-                                <span>Guarda responsável</span><br>
-                                <span>Não perca seu amigo</span><br>
-                            </div>
-                            <div class="col-md-3 my-3">
-                                <img src="src/assets/img/logofooter.png" class="img-fluid mb-4" style="width: 50%; border-radius: 1%" alt="...">
-                                <span>FALE@AMIGONAOSECOMPRA.COM.BR</span>
-                            </div>
->>>>>>> c95243dea7c77fe8f09a38852391bf2de51d7aea
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<<<<<<< HEAD
     </div>
 
     <?php require_once("rodape.php"); ?>
-=======
->>>>>>> c95243dea7c77fe8f09a38852391bf2de51d7aea
 
 
     <?php require_once("modal_login.php"); ?>
