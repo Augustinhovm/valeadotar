@@ -77,14 +77,16 @@ $total_animais = mysqli_num_rows($resultado_animais);
                         </div>
 
                     </div>
+                    <br><br>
+                    <div class="text-center"><a href="quero_adotar.php" class="btn btn-warning" style="color:white; border: 1px solid #ffffff; background-color: #f4aa24">Voltar</a> </div>
                 </div>
+
             </div>
-            <br><br><br><br>
+            <br>
 
             <div class="texto_importante">
                 <div class="row">
                     <div class="container  jumbotron">
-                        <br>
                         <h1>Atenção!</h1>
                         <br>
                         <h6>Não permitimos a venda de animais através do site. No entanto, alguns protetores solicitam uma taxa de adoção para ajudar nos custos com resgates e cuidados necessários. Se estiver inseguro quanto à seriedade da cobrança, escreva para Valeadotar@gmail.com.</h6>
