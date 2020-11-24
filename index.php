@@ -63,23 +63,24 @@ session_start();
     </style>
 
     <div class="row">
-      <div class="col-lg-4">
+
+      <div class="col-md-4">
         <h2 class="text-center">Passo 1</h2>
         <img src="_imagens/adote.png" height="110" width="110" class="bd-placeholder-img rounded-circle">
         <p class="text-center">Entre na aba Quero Adotar.</p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-
+      </div><!-- /.col-md-4 -->
+      <div class="col-md-4">
         <h2 class="text-center">Passo 2</h2>
         <img src="_imagens/escolha.png" height="110" width="110" class="bd-placeholder-img rounded-circle">
         <p class="text-center">Escolha o Peludo que mais combina com você.</p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
+      </div><!-- /.col-md-4 -->
+      <div class="col-md-4">
 
         <h2 class="text-center">Passo 3</h2>
         <img src="_imagens/entre-contato.png" height="110" width="110" class="bd-placeholder-img rounded-circle">
         <p class="text-center">Entre em contato com o doador e seja feliz com seu novo Animalzinho.</p>
-      </div><!-- /.col-lg-4 -->
+      </div><!-- /.col-md-4 -->
+    
     </div>
 
 
@@ -89,23 +90,23 @@ session_start();
 
 
     <div class="row">
-      <div class="col-lg-4">
+      <div class="col-md-4">
         <h2 class="text-center">Passo 1</h2>
         <img src="_imagens/cadastre-se.png" height="110" width="110" class="bd-placeholder-img rounded-circle">
         <p class="text-center">Cadastre-se no nosso Site.</p>
-      </div><!-- /.col-lg-4 -->
+      </div><!-- /.col-md-4 -->
 
-      <div class="col-lg-4">
+      <div class="col-md-4">
         <h2 class="text-center">Passo 2</h2>
         <img src="_imagens/dados.png" height="110" width="110" class="bd-placeholder-img rounded-circle">
         <p class="text-center">Coloque os dados do seu Animal com Foto.</p>
-      </div><!-- /.col-lg-4 -->
+      </div><!-- /.col-md-4 -->
 
-      <div class="col-lg-4">
+      <div class="col-md-4">
         <h2 class="text-center">Passo 3</h2>
         <img src="_imagens/espere.png" height="110" width="110" class="bd-placeholder-img rounded-circle">
         <p class="text-center">Aguarde ser notificado sobre pessoas interessadas.</p>
-      </div><!-- /.col-lg-4 -->
+      </div><!-- /.col-md-4 -->
     </div>
 
     <br><br><br><br>

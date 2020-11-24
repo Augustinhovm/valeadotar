@@ -11,8 +11,6 @@ $sth->bindvalue(':email', $email);
 $sth->bindvalue(':senha', $senha);
 $sth->execute();
 
-//var_dump($sth->rowCount()); exit;
-
 //AUTENTICAÇÃO
 if ($sth->rowCount() > 0) {
 
@@ -22,15 +20,17 @@ if ($sth->rowCount() > 0) {
     if ($linha['email'] == $email && $linha['senha'] == $senha) {
         extract($linha);
 
-        $_SESSION['Login']['email'] = $email;
-        $_SESSION['Login']['senha'] = $senha;
+        $_SESSION['Login']['usuario_id'] = $linha['id'];
+        $_SESSION['Login']['email']      = $email;
+        $_SESSION['Login']['senha']      = $senha;
 
-        $_SESSION['Login']['nivel_cliente'] = $nivel_cliente;
 
         //USUÁRIO AUTENTICADO É DIRECIONADO PARA A PÁGINA APROPRIADA
         header('Location: quero_doar.php');
     }
+
 } else {
 
     header('Location: index.php');
+    
 }

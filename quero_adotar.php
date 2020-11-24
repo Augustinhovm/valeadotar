@@ -61,6 +61,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
                 <div class="col-md-12">
                     <div class="jumbotron" id="formprincipal" style="margin-top: -70px; background-color: #f4aa24;">
                         <form class="text-center" style="color: white" action="busca.php">
+                        <input type="hidden" name="usuario_id" value="<?=$_SESSION['Login']['usuario_id']?>">
                             <p style="font-size: 40px; font-family: cursive; text-align: center; margin-top: -20px;">
                                 Encontre seu novo amigo</p>
                             <div class="form-row ">

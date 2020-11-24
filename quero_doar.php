@@ -58,6 +58,7 @@ session_start();
                 ?>
 
                 <form class="needs-validation" novalidate method="POST" action="insert.php" enctype="multipart/form-data">
+                    <input type="hidden" name="usuario_id" value="<?=$_SESSION['Login']['usuario_id']?>">
                     <div id="mensagem"></div>
                     <?php
 

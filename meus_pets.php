@@ -3,17 +3,17 @@ session_start();
 include_once('conexao2.php');
 
 $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
-$result_animais = "SELECT * FROM animais";
+$result_animais = "SELECT * FROM animais WHERE usuario_id=".$_SESSION['Login']['usuario_id'];
 $resultado_animais = mysqli_query($conn, $result_animais);
-$total_animais = mysqli_num_rows($resultado_animais);
+$total_animais = ($resultado_animais)?mysqli_num_rows($resultado_animais):0;
 $quantidade_pagina = 8;
 $num_pagina = ceil($total_animais / $quantidade_pagina);
 $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
-
-$result_animais2 = "SELECT * FROM animais limit $inicio, $quantidade_pagina";
+/*
+$result_animais2 = "SELECT * FROM animais WHERE id_cliente=".$_SESSION['Login']['usuario_id']." limit $inicio, $quantidade_pagina";
 $resultado_animais = mysqli_query($conn, $result_animais2);
 $total_animais = mysqli_num_rows($resultado_animais);
-
+*/
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -44,6 +44,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
                         <p class="my-4" style="font-size: 40px; font-family: cursive; text-align: center; margin-top: -20px; color: #f4aa24;">
                             MEUS PETS!</p>
                         <h4><span>Modifique informações ou remova o anuncio após doação :) </span></h4>
+                        <?php echo $_SESSION['Login']['usuario_id']; ?>
                     </div>
                 </div>
             </div>
@@ -55,23 +56,32 @@ $total_animais = mysqli_num_rows($resultado_animais);
         <div class="container">
             <div class="row justify-content-center mt-5">
 
-                <?php while ($rows_animais = mysqli_fetch_assoc($resultado_animais)) {
-                    echo '<div class="col-lg-3 col-md-6 col-12 mb-4">
-	       		            <div class="card" style="width: 16rem;" >
-	  		 	                 <img src="upload/' . $rows_animais['ani_id'] . '" width="200" height="200" class="card-img-top " style="border-radius: 1%" alt="...">
-  			                        <div class="card-body text-left"   style="color: #684686; ">	  					
-                                        <p>Nome: ' . $rows_animais['ani_nome'] . '</p>
-	    				                <p>Porte: ' . $rows_animais['ani_porte'] . '</p>
-                                        <p>Cidade: ' . $rows_animais['ani_cidade'] . '</p>
-                                        <p>Gênero: ' . $rows_animais['ani_genero'] . '</p>
-                                        <p>Espécie: ' . $rows_animais['ani_especie'] . '</p>	    				
-                                        <div class="form-group col-12 text-center"> 
-	   		 			                    <a href="detalhes.php?ani_id=' . $rows_animais['ani_id'] . ' class="btn btn-light" style="border: 1px solid #684686;">Adotar</a>
-                                        </div>
-	  				                </div>
-				            </div>
-                        </div>';
+                <?php 
+                if($resultado_animais)
+                {
+                    while ($rows_animais = mysqli_fetch_assoc($resultado_animais)) {
+                        echo '<div class="col-lg-3 col-md-6 col-12 mb-4">
+                                   <div class="card" style="width: 16rem;" >
+                                        <img src="upload/' . $rows_animais['ani_id'] . '" width="200" height="200" class="card-img-top " style="border-radius: 1%" alt="...">
+                                          <div class="card-body text-left"   style="color: #684686; ">	  					
+                                            <p>Nome: ' . $rows_animais['ani_nome'] . '</p>
+                                            <p>Porte: ' . $rows_animais['ani_porte'] . '</p>
+                                            <p>Cidade: ' . $rows_animais['ani_cidade'] . '</p>
+                                            <p>Gênero: ' . $rows_animais['ani_genero'] . '</p>
+                                            <p>Espécie: ' . $rows_animais['ani_especie'] . '</p>	    				
+                                            <div class="form-group col-12 text-center"> 
+                                                    <a href="detalhes.php?ani_id=' . $rows_animais['ani_id'] . ' class="btn btn-light" style="border: 1px solid #684686;">Adotar</a>
+                                            </div>
+                                          </div>
+                                </div>
+                            </div>';
+                    }
                 }
+                else
+                {
+                    echo "Vc não registrou algum pet!!!";
+                }
+                
                 ?>
             </div>
         </div>

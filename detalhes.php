@@ -2,7 +2,12 @@
 session_start();
 include_once('conexao2.php');
 $ani_id = $_GET['ani_id'];
-$result_animais = "SELECT * FROM animais WHERE ani_id='$ani_id'";
+$result_animais = "SELECT 
+                        a.*, 
+                        (SELECT nome FROM usuarios WHERE id=a.usuario_id) as nome_usuario 
+                    FROM 
+                        animais a 
+                    WHERE ani_id='$ani_id'";
 $resultado_animais = mysqli_query($conn, $result_animais);
 $row_animais = mysqli_fetch_assoc($resultado_animais);
 $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
@@ -66,14 +71,17 @@ $total_animais = mysqli_num_rows($resultado_animais);
                         </div>
 
                         <div class="col-md-3 jumbotron">
-                            <h6><?php echo "Gênero: " . $row_animais['ani_genero'];  ?></h6>
-                            <h6><?php echo "Espécie: " . $row_animais['ani_especie'];  ?></h6>
-                            <h6><?php echo "Porte: " . $row_animais['ani_porte'];  ?></h6>
-                            <h6><?php echo "Descrição: " . $row_animais['ani_descricao'];  ?></h6>
-                            <h6><?php echo "Doador: " . $row_animais['ani_doador'];  ?></h6>
-                            <h6><?php echo "Telefone: " . $row_animais['ani_telefone'];  ?></h6>
-                            <h6><?php echo "Email: " . $row_animais['ani_email'];  ?></h6>
-                            <h6><?php echo "Cidade: " . $row_animais['ani_cidade'];  ?></h6>
+                            <h6><?php echo "Usuario ID: "   . $row_animais['usuario_id'];  ?></h6>
+                            <h6><?php echo "Nome ID: "      . $row_animais['nome_usuario'];  ?></h6>
+                            <h6><?php echo "Gênero: "       . $row_animais['ani_genero'];  ?></h6>
+                            <h6><?php echo "Espécie: "      . $row_animais['ani_especie'];  ?></h6>
+                            <h6><?php echo "Porte: "        . $row_animais['ani_porte'];  ?></h6>
+                            <h6><?php echo "Descrição: "    . $row_animais['ani_descricao'];  ?></h6>
+                            <h6><?php echo "Doador: "       . $row_animais['ani_doador'];  ?></h6>
+                            <h6><?php echo "Telefone: "     . $row_animais['ani_telefone'];  ?></h6>
+                            <h6><?php echo "Email: "        . $row_animais['ani_email'];  ?></h6>
+                            <h6><?php echo "Cidade: "       . $row_animais['ani_cidade'];  ?></h6>
+                            <h6><?php echo "STATUS: "       . $row_animais['status'];  ?></h6>
                         </div>
 
                     </div>
