@@ -1,6 +1,11 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<<<<<<< HEAD
     <div class="modal-dialog">
         <div class="modal-content">
+=======
+        <div class="modal-dialog">
+            <div class="modal-content">
+>>>>>>> c95243dea7c77fe8f09a38852391bf2de51d7aea
 
             <form method="POST" action="logar.php">
 
@@ -12,6 +17,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
+<<<<<<< HEAD
                     <div class="form-group">
                         <label for="exampleInputEmail1">E-mail</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Digite seu e-mail" required>
@@ -21,13 +27,32 @@
                         <input type="password" class="form-control" id="exampleInputPassword1" name="senha" placeholder="Digite sua senha" required>
                     </div>
 
+=======
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">E-mail</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Digite seu e-mail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Senha</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" name="senha" placeholder="Digite sua senha" required>
+                        </div>
+                    
+>>>>>>> c95243dea7c77fe8f09a38852391bf2de51d7aea
                 </div>
                 <div class="modal-footer">
                     <input type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #f4aa24; color:white; border: 1px solid #f4aa24;" value="Fechar"></input>
                     <input type="submit" class="btn btn-primary" style="background-color:#613488; color:white; border: 1px solid #684686;" value="Logar"></input>
                 </div>
+<<<<<<< HEAD
             </form>
 
         </div>
     </div>
 </div>
+=======
+                </form>
+                
+            </div>
+        </div>
+    </div>
+>>>>>>> c95243dea7c77fe8f09a38852391bf2de51d7aea
