@@ -76,10 +76,8 @@ $total_animais = mysqli_num_rows($resultado_animais);
                             <h6><?php echo "Gênero: "       . $row_animais['ani_genero'];  ?></h6>
                             <h6><?php echo "Espécie: "      . $row_animais['ani_especie'];  ?></h6>
                             <h6><?php echo "Porte: "        . $row_animais['ani_porte'];  ?></h6>
-                            <h6><?php echo "Descrição: "    . $row_animais['ani_descricao'];  ?></h6>
-                            <h6><?php echo "Doador: "       . $row_animais['ani_doador'];  ?></h6>
+                            <h6><?php echo "Descrição: "    . $row_animais['ani_descricao'];  ?></h6>                        
                             <h6><?php echo "Telefone: "     . $row_animais['ani_telefone'];  ?></h6>
-                            <h6><?php echo "Email: "        . $row_animais['ani_email'];  ?></h6>
                             <h6><?php echo "Cidade: "       . $row_animais['ani_cidade'];  ?></h6>
                             <h6><?php echo "STATUS: "       . $row_animais['status'];  ?></h6>
                         </div>

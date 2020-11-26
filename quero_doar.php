@@ -58,7 +58,7 @@ session_start();
                 ?>
 
                 <form class="needs-validation" novalidate method="POST" action="insert.php" enctype="multipart/form-data">
-                    <input type="hidden" name="usuario_id" value="<?=$_SESSION['Login']['usuario_id']?>">
+                      <input type="hidden" name="usuario_id" value="<?=$_SESSION['Login']['usuario_id']?>">
                     <div id="mensagem"></div>
                     <?php
 
@@ -68,6 +68,8 @@ session_start();
                     } else {
 
                     ?>
+                      
+                        
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -131,16 +133,7 @@ session_start();
                                 <input type="number" name="ani_telefone" class="form-control" placeholder="Telefone" <?= $required ?>>
                                 <div class="invalid-feedback">Campo obrigatório!</div>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputName4">Digite seu Email para contato:</label>
-                                <input type="email" name="ani_email" class="form-control" placeholder="Email do Doador" <?= $required ?>>
-                                <div class="invalid-feedback">Campo obrigatório!</div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputName4">Digite seu nome para contato:</label>
-                                <input type="text" name="ani_doador" class="form-control" placeholder="Nome do Doador" <?= $required ?>>
-                                <div class="invalid-feedback">Campo obrigatório!</div>
-                            </div>
+                            
 
                             <div class="form-group col-md-6">
 

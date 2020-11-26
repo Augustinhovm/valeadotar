@@ -44,7 +44,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
                         <p class="my-4" style="font-size: 40px; font-family: cursive; text-align: center; margin-top: -20px; color: #f4aa24;">
                             MEUS PETS!</p>
                         <h4><span>Modifique informações ou remova o anuncio após doação :) </span></h4>
-                        <?php echo $_SESSION['Login']['usuario_id']; ?>
+                        
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
                                             <p>Gênero: ' . $rows_animais['ani_genero'] . '</p>
                                             <p>Espécie: ' . $rows_animais['ani_especie'] . '</p>	    				
                                             <div class="form-group col-12 text-center"> 
-                                                    <a href="detalhes.php?ani_id=' . $rows_animais['ani_id'] . ' class="btn btn-light" style="border: 1px solid #684686;">Adotar</a>
+                                                    <a href="detalhesusuarios.php?ani_id=' . $rows_animais['ani_id'] . ' class="btn btn-light" style="border: 1px solid #684686;">Editar Status</a>
                                             </div>
                                           </div>
                                 </div>
