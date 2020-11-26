@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+//SE O USUÁRIO NÃO ESTIVER AUTENTICADO, FAZ O ENVIO DO LOGIN
+if (!array_key_exists('Login', $_SESSION)) {
+	require_once("logar.php");
+}
+
 include_once('conexao2.php');
 
 $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
@@ -33,8 +39,6 @@ $total_animais = mysqli_num_rows($resultado_animais);
         <?php require_once("menus_topo.php"); ?>
 
     </div>
-
-
 
     <div class="main">
         <div class="section">

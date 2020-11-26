@@ -1,6 +1,14 @@
 <?php
 session_start();
+
+//SE O USUÁRIO NÃO ESTIVER AUTENTICADO, FAZ O ENVIO DO LOGIN
+if (!array_key_exists('Login', $_SESSION)) {
+	require_once("logar.php");
+}
+
 include_once('conexao2.php');
+
+
 $ani_id = $_GET['ani_id'];
 $result_animais = "SELECT 
                         a.*, 
