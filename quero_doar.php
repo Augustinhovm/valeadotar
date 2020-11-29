@@ -2,6 +2,11 @@
 
 session_start();
 
+//SE O USUÁRIO NÃO ESTIVER AUTENTICADO, FAZ O ENVIO DO LOGIN
+if (!array_key_exists('Login', $_SESSION)) {
+	require_once("logar.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -133,7 +138,7 @@ session_start();
                                 <input type="number" name="ani_telefone" class="form-control" placeholder="Telefone" <?= $required ?>>
                                 <div class="invalid-feedback">Campo obrigatório!</div>
                             </div>
-                            
+
 
                             <div class="form-group col-md-6">
 

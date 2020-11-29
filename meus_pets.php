@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+//SE O USUÁRIO NÃO ESTIVER AUTENTICADO, FAZ O ENVIO DO LOGIN
+if (!array_key_exists('Login', $_SESSION)) {
+	require_once("logar.php");
+}
+
 include_once('conexao2.php');
 
 $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
@@ -33,8 +39,6 @@ $total_animais = mysqli_num_rows($resultado_animais);
         <?php require_once("menus_topo.php"); ?>
 
     </div>
-
-
 
     <div class="main">
         <div class="section">
@@ -99,7 +103,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
                 <li class="page-item">
                     <?php
                     if ($pagina_anterior != 0) { ?>
-                        <a class="page-link" href="quero_adotar.php?pagina=<?php echo $pagina_anterior; ?>" aria-label="Previous">
+                        <a class="page-link" href="meus_pets.php?pagina=<?php echo $pagina_anterior; ?>" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     <?php } else { ?>
@@ -107,7 +111,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
                 </li>
                 <?php
                 for ($i = 1; $i < $num_pagina + 1; $i++) { ?>
-                    <li class="page-item"><a class="page-link" href="quero_adotar.php?pagina=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                    <li class="page-item"><a class="page-link" href="meus_pets.php?pagina=<?php echo $i; ?>"><?php echo $i; ?></a></li>
 
                 <?php } ?>
 
@@ -115,7 +119,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
                 <li class="page-item">
                     <?php
                     if ($pagina_posterior <= $num_pagina) { ?>
-                        <a class="page-link" href="quero_adotar.php?pagina=<?php echo $pagina_posterior; ?>" aria-label="Next">
+                        <a class="page-link" href="meus_pets.php?pagina=<?php echo $pagina_posterior; ?>" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     <?php } else { ?>
@@ -128,51 +132,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
 
 
 
-    <div class="section">
-        <div class="container w-100">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <p class="my-4" style="font-size: 40px; font-family: cursive; text-align: center; margin-top: -20px; color: #f4aa24;">
-                        Por que adotar?</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="src/assets/img/log.png" class="img-fluid" style="border-radius: 1%" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut iure maxime fugiat non
-                                ullam tempore, ipsum, consequuntur </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="src/assets/img/log.png" class="img-fluid" style="border-radius: 1%" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut iure maxime fugiat non
-                                ullam tempore, ipsum, consequuntur </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="src/assets/img/log.png" class="img-fluid" style="border-radius: 1%" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut iure maxime fugiat non
-                                ullam tempore, ipsum, consequuntur </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     </div>
 
     <?php require_once("rodape.php"); ?>

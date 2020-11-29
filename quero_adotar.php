@@ -61,7 +61,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
                 <div class="col-md-12">
                     <div class="jumbotron" id="formprincipal" style="margin-top: -70px; background-color: #f4aa24;">
                         <form class="text-center" style="color: white" action="busca.php">
-                        <input type="hidden" name="usuario_id" value="<?=$_SESSION['Login']['usuario_id']?>">
+                        
                             <p style="font-size: 40px; font-family: cursive; text-align: center; margin-top: -20px;">
                                 Encontre seu novo amigo</p>
                             <div class="form-row ">
@@ -215,8 +215,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
                             <img src="src/assets/img/log.png" class="img-fluid" style="border-radius: 1%" alt="...">
                         </div>
                         <div class="col-md-8">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut iure maxime fugiat non
-                                ullam tempore, ipsum, consequuntur </p>
+                            <p>Ao adotar, você ajuda a reduzir o número de cães e gatos abandonados. Os animais de rua já passaram por muito sofrimento e tudo o que precisam é de um lar para serem felizes de verdade!</p>
                         </div>
                     </div>
                 </div>
@@ -226,8 +225,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
                             <img src="src/assets/img/log.png" class="img-fluid" style="border-radius: 1%" alt="...">
                         </div>
                         <div class="col-md-8">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut iure maxime fugiat non
-                                ullam tempore, ipsum, consequuntur </p>
+                            <p>E não há recompensa maior do que vê-los se transformarem naquela coisinha alegre e saudável depois de receberem uma boa dose de cuidado e carinho. </p>
                         </div>
                     </div>
                 </div>
@@ -237,8 +235,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
                             <img src="src/assets/img/log.png" class="img-fluid" style="border-radius: 1%" alt="...">
                         </div>
                         <div class="col-md-8">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut iure maxime fugiat non
-                                ullam tempore, ipsum, consequuntur </p>
+                            <p>Pensando bem, a pergunta é outra: se você pode mudar o destino de um animal carente, por que você não faria isso? </p>
                         </div>
                     </div>
                 </div>

@@ -168,8 +168,7 @@ $resultado_animais = mysqli_query($conn, $query);
                                     <img src="src/assets/img/log.png" class="img-fluid" style="border-radius: 1%" alt="...">
                                 </div>
                                 <div class="col-md-8">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut iure maxime fugiat non
-                                        ullam tempore, ipsum, consequuntur </p>
+                                    <p>Ao adotar, você ajuda a reduzir o número de cães e gatos abandonados. Os animais de rua já passaram por muito sofrimento e tudo o que precisam é de um lar para serem felizes de verdade! </p>
                                 </div>
                             </div>
                         </div>
@@ -179,8 +178,7 @@ $resultado_animais = mysqli_query($conn, $query);
                                     <img src="src/assets/img/log.png" class="img-fluid" style="border-radius: 1%" alt="...">
                                 </div>
                                 <div class="col-md-8">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut iure maxime fugiat non
-                                        ullam tempore, ipsum, consequuntur </p>
+                                    <p>E não há recompensa maior do que vê-los se transformarem naquela coisinha alegre e saudável depois de receberem uma boa dose de cuidado e carinho. </p>
                                 </div>
                             </div>
                         </div>
@@ -190,8 +188,7 @@ $resultado_animais = mysqli_query($conn, $query);
                                     <img src="src/assets/img/log.png" class="img-fluid" style="border-radius: 1%" alt="...">
                                 </div>
                                 <div class="col-md-8">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut iure maxime fugiat non
-                                        ullam tempore, ipsum, consequuntur </p>
+                                    <p>Pensando bem, a pergunta é outra: se você pode mudar o destino de um animal carente, por que você não faria isso? </p>
                                 </div>
                             </div>
                         </div>

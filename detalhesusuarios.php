@@ -95,23 +95,7 @@ $total_animais = mysqli_num_rows($resultado_animais);
             </div>
             <br>
 
-            <div class="texto_importante">
-                <div class="row">
-                    <div class="container  jumbotron">
-                        <h1>Atenção!</h1>
-                        <br>
-                        <h6>Não permitimos a venda de animais através do site. No entanto, alguns protetores solicitam uma taxa de adoção para ajudar nos custos com resgates e cuidados necessários. Se estiver inseguro quanto à seriedade da cobrança, escreva para Valeadotar@gmail.com.</h6>
-                        <br>
-                        <h2>E antes de adotar, lembre-se:</h2>
-                        <br>
-                        <h6>Animais têm sentimentos. Eles precisam de carinho e atenção todos os dias.</h6>
-                        <h6>Todos os moradores da casa devem estar de acordo com a adoção.</h6>
-                        <h6>Ao viajar, precisará deixá-lo com alguém de confiança.</h6>
-                        <h6>Você terá despesas com ração, vacinas e veterinário.</h6>
-                        <h6>Cães e gatos vivem 15 anos ou mais e você será responsável por cuidar dele durante todo esse tempo. ;)</h6>
-                    </div>
-                </div>
-            </div>
+           
         </div>
         <?php require_once("rodape.php"); ?>
         <?php require_once("modal_login.php"); ?>
