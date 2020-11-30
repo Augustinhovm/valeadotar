@@ -55,13 +55,6 @@ if (!array_key_exists('Login', $_SESSION)) {
 		$msg .= "Telefone Inválido!<br>";
 	}
 
-	
-
-
-
-	
-
-
 	$usuario_id = filter_input(INPUT_POST, 'usuario_id', FILTER_SANITIZE_NUMBER_INT);
 	if (!$usuario_id) {
 		$erros++;

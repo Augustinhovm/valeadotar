@@ -5,13 +5,42 @@ session_start();
 
 include_once('conexao2.php');
 
+$msg   = null;
+//---| APÓS SUBMIÇÃO DO FORMULÁRIO, RECEBE VALOR SELECIONADO |---
+if(array_key_exists("status",$_POST) && strlen(trim($_POST["status"]))>0)
+{
+    //---| PEGAR A VARIÁVEL E INSERIR NO BANCO |---
+    $erros = 0;
+    
+    $ani_id = filter_input(INPUT_POST, 'ani_id', FILTER_SANITIZE_NUMBER_INT);
+	if (!$ani_id) {
+        $erros++;
+		$msg .= "ID Inválido!<br>";
+    }
+
+    $status = filter_input(INPUT_POST, 'status', FILTER_SANITIZE_STRING);
+	if (!$status) {
+        $erros++;
+		$msg .= "STATUS Inválido!<br>";
+    }
+    
+    $msg = '<div class="alert alert-danger">'.$msg.'</div>';
+    
+    if($erros<1)
+    {
+        $query = "UPDATE animais SET status='".$status."' WHERE ani_id=".$ani_id;
+        $resultado_usuarios = mysqli_query($conn, $query);
+        if ($resultado_usuarios) {
+            $msg = '<div class="alert alert-success">Status alterado com sucesso</div><br>';
+        }
+    }
+
+}
+//---
 
 $ani_id = $_GET['ani_id'];
-$result_animais = "SELECT 
-                        a.*, 
-                        (SELECT nome FROM usuarios WHERE id=a.usuario_id) as nome_usuario 
-                    FROM 
-                        animais a 
+$result_animais = "SELECT a.*, (SELECT nome FROM usuarios WHERE id=a.usuario_id) as nome_usuario 
+                    FROM animais a 
                     WHERE ani_id='$ani_id'";
 $resultado_animais = mysqli_query($conn, $result_animais);
 $row_animais = mysqli_fetch_assoc($resultado_animais);
@@ -19,6 +48,8 @@ $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
 $result_animais = "SELECT * FROM animais WHERE ani_id='$ani_id'";
 $resultado_animais = mysqli_query($conn, $result_animais);
 $total_animais = mysqli_num_rows($resultado_animais);
+
+    
 
 ?>
 <!DOCTYPE html>
@@ -84,7 +115,23 @@ $total_animais = mysqli_num_rows($resultado_animais);
                             <h6><?php echo "Descrição: "    . $row_animais['ani_descricao'];  ?></h6>                        
                             <h6><?php echo "Telefone: "     . $row_animais['ani_telefone'];  ?></h6>
                             <h6><?php echo "Cidade: "       . $row_animais['ani_cidade'];  ?></h6>
-                            <h6><?php echo "STATUS: "       . $row_animais['status'];  ?></h6>
+                            <h6><?php echo "<strong>STATUS:</strong> "; ?></h6>
+
+                            <!--- CRIAR UM FORMULÁRIO -->
+                            <form method="POST" id="frmMudaStatus">
+                                <input type="hidden" name="ani_id" value="<?=$row_animais['ani_id']?>">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="status" id="status1" value="EM TRANSACAO"  <?php echo ($row_animais['status']=="EM TRANSACAO")?'checked':null; ?>>
+                                    <label class="form-check-label" for="status1">EM TRANSAÇÃO:</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="status" id="status2" value="DOADO"  <?php echo ($row_animais['status']!="EM TRANSACAO")?'checked':null; ?>>
+                                    <label class="form-check-label" for="status2">DOADO:</label>
+                                </div>
+                            </form>
+                            <?php echo ($msg)?$msg:null; ?>
+                            <!-- / -->
+                            
                         </div>
 
                     </div>
@@ -107,6 +154,13 @@ $total_animais = mysqli_num_rows($resultado_animais);
     <script src="src/node_modules/bootstrap/dist/js/jquery-3.5.1.min.js"></script>
     <script src="src/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="src/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("input.form-check-input").click(function(evt){
+                $("form#frmMudaStatus").submit();
+            })
+        });
+    </script>
 
 </body>
 
